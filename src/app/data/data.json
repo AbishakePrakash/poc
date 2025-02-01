@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Kishore Krishnakumar",
+    "title": "Industrial Designer",
+    "bio": "Kishore is an Industrial designer based in Switzerland, working in various domains like consumer electronics, mobility, SaaS, fintech, IoT, and robotics.",
+    "education": [
+      {
+        "year": "2024 - Present",
+        "institution": "Zurich University of the Arts, Switzerland",
+        "degree": "Master of Arts - Industrial Design"
+      },
+      {
+        "year": "2017 - 2021",
+        "institution": "LPU, Jalandhar, India",
+        "degree": "Bachelor in Design - Product & Industrial Design"
+      },
+      {
+        "year": "2017",
+        "institution": "N.S.N Group of Schools, Chennai, India",
+        "degree": "High School"
+      }
+    ],
+    "work_experience": [
+      {
+        "period": "Nov 2023 - Mar 2024",
+        "position": "Independent design consultant/freelancer",
+        "description": "Worked for multiple organizations in areas like R&D, prototyping, and system design, focusing on high-scale medical automation solutions."
+      },
+      {
+        "period": "Sep 2022 - Oct 2023",
+        "position": "Industrial designer",
+        "company": "Holocut 3.0, Mycase",
+        "description": "Developed an advanced full-body motion capture suit for VR, product design, and ergonomic analysis."
+      },
+      {
+        "period": "Nov 2021 - Aug 2022",
+        "position": "Team Head - Design",
+        "company": "Solar Power Campaign",
+        "description": "Led the design team in industrialization, prototyping, and mass production of energy products."
+      },
+      {
+        "period": "Nov 2020 - Aug 2021",
+        "position": "Industrial Designer - Internship & Permanent Employment",
+        "company": "Product Dept., Luminaire",
+        "description": "Worked on sketching, visualization, and DFM techniques for consumer electronics."
+      }
+    ],
+    "patents_awards_exhibitions": [
+      {
+        "date": "Jun 2021",
+        "title": "Design Registration - WIRE CUTTING TOOL",
+        "details": "Patent number: 314917-001"
+      },
+      {
+        "date": "Jan 2022",
+        "title": "Presented - Holocut 3.0 at CES - 2023",
+        "location": "Las Vegas, USA"
+      },
+      {
+        "date": "Oct 2024",
+        "title": "Presented - Unit cell at 'From Sun to Cell'",
+        "location": "ZHdK, Switzerland"
+      }
+    ],
+    "contact": {
+      "email": "mailtokishore@gmail.com",
+      "social": {
+        "instagram": "Instagram Link",
+        "linkedin": "LinkedIn Profile"
+      }
+    }
+  }
+]

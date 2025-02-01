@@ -1,101 +1,159 @@
-import Image from "next/image";
+"use client";
+import { useState, useEffect } from "react";
+import data from "./data/data.json";
+import { useTheme } from "./context/Themecontext";
+import Link from "next/link";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  // const { theme, toggleTheme } = useTheme();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div>
+      {/* {data.map((item, index) => { */}
+      {/* return ( */}
+      <div className="px-20 py-10 h-dvh bg-background ">
+        <div className="text-copy-primary flex items-baseline gap-10">
+          <h1 className=" text-[65px] font-normal tracking-widest">
+            Prince Kumar
+          </h1>
+          <span className="text-[24px] font-normal text-gray-500 ">
+            -Mern Stack Developer
+          </span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="px-20 py-10 mt-10 space-y-4 text-copy-primary left-0 absolute">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
+            nobis reprehenderit nisi quia natus voluptatem dolorem blanditiis
+            laudantium vitae saepe, unde quaerat vero fuga. Aut quisquam
+            recusandae consequuntur quo unde animi quae vitae ullam. Distinctio
+            ratione modi vero fugit, soluta rem commodi officiis explicabo,
+            officia ex, vel doloribus debitis quidem!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
+            nobis reprehenderit nisi quia natus voluptatem dolorem blanditiis
+            laudantium vitae saepe, unde quaerat vero fuga. Aut quisquam
+            recusandae consequuntur quo unde animi quae vitae ullam. Distinctio
+            ratione modi vero fugit, soluta rem commodi officiis explicabo,
+            officia ex, vel doloribus debitis quidem!
+          </p>
+        </div>
+      </div>
+      {/* ); */}
+      {/* })} */}
+      <div className="px-20 py-10 bg-background flex justify-center items-center h-dvh">
+        showreel video here
+      </div>
+
+      <div className="text-copy-primary px-10 py-10 bg-background">
+        <div className="flex justify-between items-center">
+          <h3 className="text-5xl font-normal ">Selected Works</h3>
+          <Link
+            href="/allworks"
+            className="text-xl cursor-pointer hover:text-copy-secondary"
+          >
+            All Works &gt;
+          </Link>
+        </div>
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-10 ">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].slice(0, 6).map((item, index) => {
+            return (
+              <div className="flex flex-col space-y-5 mt-10">
+                <div className="text-copy-primary bg-copy-secondary h-[300px]">
+                  Project Icon
+                </div>
+                <span className="text-copy-primary">PROJECT TITLE</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="px-10 py-10 mt-10 bg-background">
+        <h1>CV</h1>
+        <div className="space-y-8">
+          <h3 className="mt-10">Education</h3>
+          <div className="space-y-2">
+            <p>2023 - present</p>
+            <p>adjfak adsjadkjf asdl adkjadsfk dkjfad adjkfads</p>
+          </div>
+          <div className="space-y-2">
+            <p>2023 - present</p>
+            <p>adjfak adsjadkjf asdl adkjadsfk dkjfad adjkfads</p>
+          </div>
+          <div className="space-y-2">
+            <p>2023 - present</p>
+            <p>adjfak adsjadkjf asdl adkjadsfk dkjfad adjkfads</p>
+          </div>
+        </div>
+        <div className="mt-10 ">
+          <h3 className="mb-10">Work Experience</h3>
+          <div className="space-y-8">
+            <div>
+              <p>Nov 2023 - Mar 2024</p>
+              <p>Independent Design constultation/freelancer Banglore</p>
+              <p>
+                Lorem adsjadk dsadskjf ad adkjas dadfakjsdf a adkfja dfadsfjad
+                fasdfajdsfa sdfaksdfja sdfaksdf asdfasjdfa sdfaskdfja dfadsfjadd
+                fasdfadsjf asdfjads dfakd sfakds fa
+              </p>
+            </div>
+            <div>
+              <p>Nov 2023 - Mar 2024</p>
+              <p>Independent Design constultation/freelancer Banglore</p>
+              <p>
+                Lorem adsjadk dsadskjf ad adkjas dadfakjsdf a adkfja dfadsfjad
+                fasdfajdsfa sdfaksdfja sdfaksdf asdfasjdfa sdfaskdfja dfadsfjadd
+                fasdfadsjf asdfjads dfakd sfakds fa
+              </p>
+            </div>
+            <div>
+              <p>Nov 2023 - Mar 2024</p>
+              <p>Independent Design constultation/freelancer Banglore</p>
+              <p>
+                Lorem adsjadk dsadskjf ad adkjas dadfakjsdf a adkfja dfadsfjad
+                fasdfajdsfa sdfaksdfja sdfaksdf asdfasjdfa sdfaskdfja dfadsfjadd
+                fasdfadsjf asdfjads dfakd sfakds fa
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="h-dvh bg-background px-10 py-10">
+        <h1>Patents / Design registrations / Awards / Exhibitions</h1>
+        <div className="mt-10 space-y-10">
+          <div className="">
+            <p>June 2021</p>
+            <p>lre adkjafdjkf adkjasdkf peirodsfsjk adkjadf </p>
+          </div>
+          <div>
+            <p>June 2021</p>
+            <p>lre adkjafdjkf adkjasdkf peirodsfsjk adkjadf </p>
+          </div>
+          <div>
+            <p>June 2021</p>
+            <p>lre adkjafdjkf adkjasdkf peirodsfsjk adkjadf </p>
+          </div>
+          <div>
+            <p>June 2021</p>
+            <p>lre adkjafdjkf adkjasdkf peirodsfsjk adkjadf </p>
+          </div>
+          <div>
+            <p>June 2021</p>
+            <p>lre adkjafdjkf adkjasdkf peirodsfsjk adkjadf </p>
+          </div>
+        </div>
+      </div>
+      <div className="px-10 py-10 text-copy-primary">
+        <h1 className="text-2xl">Contact</h1>
+        <div className="bg-copy-secondary mt-10 h-[400px] w-[600px]">
+          3d image here
+        </div>
+        <div className="flex items-center space-x-10">
+          <p>instagram</p>
+          <p>Linkedin</p>
+          <p>mrprince@gamil.com</p>
+        </div>
+      </div>
     </div>
   );
 }
