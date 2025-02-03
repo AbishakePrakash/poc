@@ -3,6 +3,7 @@ import "./globals.css";
 import ThemeProvider from "./context/Themecontext";
 import ToggleTheme from "./components/ToggleTheme";
 import DataContext from "./context/DataContext";
+import { Header } from "./pages/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,8 @@ export default function RootLayout({ children }) {
         <DataContext>
           <ThemeProvider>
             <nav>
-              <ToggleTheme />
+              <Header />
+              {/* <ToggleTheme /> */}
             </nav>
             <main>{children}</main>
             <footer className="bg-black px-10 py-4 text-center">
