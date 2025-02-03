@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "./context/Themecontext";
 import ToggleTheme from "./components/ToggleTheme";
+import DataContext from "./context/DataContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,15 +23,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <ThemeProvider>
-          <nav>
-            <ToggleTheme />
-          </nav>
-          <main>{children}</main>
-          <footer className="bg-black px-10 py-4 text-center">
-            <h1 className="text-white font-xl text-center ">Mrprince &copy;</h1>
-          </footer>
-        </ThemeProvider>
+        <DataContext>
+          <ThemeProvider>
+            <nav>
+              <ToggleTheme />
+            </nav>
+            <main>{children}</main>
+            <footer className="bg-black px-10 py-4 text-center">
+              <h1 className="text-white font-xl text-center ">
+                Mrprince &copy;
+              </h1>
+            </footer>
+          </ThemeProvider>
+        </DataContext>
       </body>
     </html>
   );

@@ -1,28 +1,13 @@
 "use-client";
 
-import { useEffect, useState } from "react";
-import { getData } from "../helper/cms";
-import { getAsset } from "../helper/asset";
+import { useProfileData } from "../context/DataContext";
 
 export const Profile = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const content = await getData();
-        setData(content.items[0]);
-        console.log(content.items[0]);
-      } catch (error) {
-        console.error("Err:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { data } = useProfileData();
+  console.log(data);
 
   if (!data) {
-    return <div>No data available</div>; // Show this when no data exists
+    return <div>Loadings...</div>; // Show this when no data exists
   }
 
   return (

@@ -1,0 +1,43 @@
+"use client";
+
+import React, { useEffect, useState, createContext, useContext } from "react";
+import { getData } from "../helper/cms";
+
+const DataContextApi = createContext();
+
+const DataContext = ({ children }) => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const response = await getData();
+        setData(response.items[0]);
+        console.log(response.items[0].fields);
+      } catch (error) {
+        console.error("Err", error);
+      }
+    };
+
+    fetchProfileData();
+  }, []);
+
+  return (
+    <DataContextApi.Provider value={{ data }}>
+      {children}
+    </DataContextApi.Provider>
+  );
+};
+
+export default DataContext;
+
+export function useProfileData() {
+  const context = useContext(DataContextApi);
+
+  if (!context) {
+    throw new Error(
+      "useProfileData must be used within a DataContext provider"
+    );
+  }
+  return context;
+}
