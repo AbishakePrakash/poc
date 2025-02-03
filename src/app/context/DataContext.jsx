@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, createContext, useContext } from "react";
-import { getData } from "../helper/cms";
+import { getProfile } from "../helper/cms";
 
 const DataContextApi = createContext();
 
@@ -11,9 +11,9 @@ const DataContext = ({ children }) => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await getData();
-        setData(response.items[0]);
-        console.log(response.items[0].fields);
+        const response = await getProfile();
+        setData(response[0]);
+        // console.log(response[0]);
       } catch (error) {
         console.error("Err", error);
       }

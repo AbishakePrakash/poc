@@ -26,10 +26,7 @@ export default function RootLayout({ children }) {
       <body>
         <DataContext>
           <ThemeProvider>
-            <nav>
-              <Header />
-              {/* <ToggleTheme /> */}
-            </nav>
+            <nav>{/* <ToggleTheme /> */}</nav>
             <main>{children}</main>
             <footer className="bg-black px-10 py-4 text-center">
               <h1 className="text-white font-xl text-center ">
