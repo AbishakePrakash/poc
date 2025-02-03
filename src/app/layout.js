@@ -4,6 +4,7 @@ import ThemeProvider from "./context/Themecontext";
 import ToggleTheme from "./components/ToggleTheme";
 import DataContext from "./context/DataContext";
 import { Header } from "./pages/header";
+import ProjectContext from "./context/ProjectContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,18 +26,20 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <DataContext>
-          <ThemeProvider>
-            <nav>
-              <Header />
-              {/* <ToggleTheme /> */}
-            </nav>
-            <main>{children}</main>
-            <footer className="bg-black px-10 py-4 text-center">
-              <h1 className="text-white font-xl text-center ">
-                Mrprince &copy;
-              </h1>
-            </footer>
-          </ThemeProvider>
+          <ProjectContext>
+            <ThemeProvider>
+              <nav>
+                <Header />
+                {/* <ToggleTheme /> */}
+              </nav>
+              <main>{children}</main>
+              <footer className="bg-black px-10 py-4 text-center">
+                <h1 className="text-white font-xl text-center ">
+                  Mrprince &copy;
+                </h1>
+              </footer>
+            </ThemeProvider>
+          </ProjectContext>
         </DataContext>
       </body>
     </html>

@@ -4,14 +4,13 @@ import { useProfileData } from "../context/DataContext";
 
 export const Education = () => {
   const { education } = useProfileData();
-  console.log("Edu", education);
+  // console.log("Edu", education);
 
   if (!education) return <div>Loading...</div>;
 
   function getYear(date) {
     if (!date) return "Present";
     const year = date.split("-")[0];
-    console.log({ year });
     return year;
   }
 

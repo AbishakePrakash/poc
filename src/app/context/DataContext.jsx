@@ -19,7 +19,7 @@ const DataContext = ({ children }) => {
         setEducation(response[0].education);
         setExperience(response[0].experience);
         setAchievements(response[0].patentsDesignRegistrationsAwardsExhibiti);
-        console.log("Context", response[0]);
+        // console.log("Context", response[0]);
       } catch (error) {
         console.error("Err", error);
       }

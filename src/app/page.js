@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { client } from "./helper/cms";
 import { Header } from "./pages/header";
 import { Experience } from "./pages/experience";
+import { Cv } from "./pages/cv";
 
 export default function Home() {
   // const { theme, toggleTheme } = useTheme();
@@ -16,9 +17,8 @@ export default function Home() {
   return (
     <div>
       <Profile />
-      {/* <Projects /> */}
-      <Education />
-      <Experience />
+      <Projects />
+      <Cv />
       <Achievements />
       {/* <Contact /> */}
     </div>

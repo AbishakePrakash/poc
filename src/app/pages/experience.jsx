@@ -2,7 +2,7 @@ import { useProfileData } from "../context/DataContext";
 
 export const Experience = () => {
   const { experience } = useProfileData();
-  console.log("Exp", experience);
+  // console.log("Exp", experience);
 
   if (!experience) return <div>Loading...</div>;
 

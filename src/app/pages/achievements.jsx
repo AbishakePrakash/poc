@@ -2,7 +2,7 @@ import { useProfileData } from "../context/DataContext";
 
 export const Achievements = () => {
   const { achievements } = useProfileData();
-  console.log("Achievements", achievements);
+  // console.log("Achievements", achievements);
   if (!achievements) return <div>Loading...</div>;
 
   function getMonthAndYear(cDate) {

@@ -11,7 +11,7 @@ export const Profile = () => {
   if (!data) return <div>Loadings...</div>;
 
   return (
-    <div>
+    <div style={{ backgroundColor: "red" }}>
       <div className="px-20 py-10 h-dvh bg-background ">
         <div className="text-copy-primary flex items-baseline gap-10">
           <h1 className=" text-[65px] font-normal tracking-widest">
@@ -26,11 +26,10 @@ export const Profile = () => {
           <p>{data.para2}</p>
         </div>
       </div>
-      {/* <div className="px-20 py-10 bg-background flex justify-center items-center h-dvh ">
-        showreel video here
-      </div> */}
-      <div className="px-20 bg-blue-500 bg-background flex justify-center items-center">
-        showreel video here
+      <div className="px-20 py-20 bg-background flex justify-center items-center">
+        <video width="100%" height="auto" autoPlay loop muted>
+          <source src={data.video.fields.file.url} type="video/mp4" />
+        </video>
       </div>
     </div>
   );
