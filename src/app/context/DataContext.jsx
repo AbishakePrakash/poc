@@ -7,13 +7,19 @@ const DataContextApi = createContext();
 
 const DataContext = ({ children }) => {
   const [data, setData] = useState(null);
+  const [education, setEducation] = useState(null);
+  const [experience, setExperience] = useState(null);
+  const [achievements, setAchievements] = useState(null);
 
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
         const response = await getProfile();
         setData(response[0]);
-        // console.log(response[0]);
+        setEducation(response[0].education);
+        setExperience(response[0].experience);
+        setAchievements(response[0].patentsDesignRegistrationsAwardsExhibiti);
+        console.log("Context", response[0]);
       } catch (error) {
         console.error("Err", error);
       }
@@ -23,7 +29,9 @@ const DataContext = ({ children }) => {
   }, []);
 
   return (
-    <DataContextApi.Provider value={{ data }}>
+    <DataContextApi.Provider
+      value={{ data, education, experience, achievements }}
+    >
       {children}
     </DataContextApi.Provider>
   );

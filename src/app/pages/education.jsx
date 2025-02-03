@@ -1,44 +1,33 @@
 "use-client";
 
-import { useEffect, useState } from "react";
-import { getProfile } from "../helper/cms";
+import { useProfileData } from "../context/DataContext";
 
 export const Education = () => {
-  const [data, setData] = useState();
+  const { education } = useProfileData();
+  console.log("Edu", education);
 
-  useEffect(() => {
-    async function fetchData() {
-      const res = await getProfile("education");
-      setData(res);
-      // console.log(res[0].startDate.split("-")[0]);
-    }
-
-    fetchData();
-  }, []);
-
-  if (!data) {
-    return <div>Loading...</div>;
-  }
+  if (!education) return <div>Loading...</div>;
 
   function getYear(date) {
+    if (!date) return "Present";
     const year = date.split("-")[0];
     console.log({ year });
-
     return year;
   }
 
   return (
     <div className="space-y-8 mx-20">
       <h3 className="mt-10 ">Education</h3>
-      {data &&
-        data.map((item, index) => (
+      {education &&
+        education.map((item, index) => (
           <div key={index} className="space-y-2">
             <p style={{ fontWeight: 600 }}>
-              {item.startDate.split("-")[0]} -{item.endDate.split("-")[0]}
+              {getYear(item.fields.startDate)} - {getYear(item.fields.endDate)}
             </p>
-            <p>{getYear(item.startDate)}</p>
-            <p>{item.institute}</p>
-            <p>adjfak adsjadkjf asdl adkjadsfk dkjfad adjkfads</p>
+            <p>{item.fields.institute}</p>
+            <p>
+              {item.fields.qualification} - {item.fields.specialization}
+            </p>
           </div>
         ))}
     </div>

@@ -8,18 +8,18 @@ import { Education } from "./pages/education";
 import { useEffect, useState } from "react";
 import { client } from "./helper/cms";
 import { Header } from "./pages/header";
+import { Experience } from "./pages/experience";
 
 export default function Home() {
   // const { theme, toggleTheme } = useTheme();
 
   return (
     <div>
-      <Header />
-
-      {/* <Profile /> */}
+      <Profile />
       {/* <Projects /> */}
       <Education />
-      {/* <Achievements /> */}
+      <Experience />
+      <Achievements />
       {/* <Contact /> */}
     </div>
   );

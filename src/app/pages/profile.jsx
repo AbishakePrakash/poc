@@ -5,24 +5,10 @@ import { useProfileData } from "../context/DataContext";
 import { getProfile } from "../helper/cms";
 
 export const Profile = () => {
-  // const { data } = useProfileData();
-  // console.log(data);
+  const { data } = useProfileData();
+  console.log(data);
 
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    async function fetchData() {
-      const res = await getProfile("db");
-      setData(res[0]);
-      console.log(res[0]);
-    }
-
-    fetchData();
-  }, []);
-
-  if (!data) {
-    return <div>Loadings...</div>; // Show this when no data exists
-  }
+  if (!data) return <div>Loadings...</div>;
 
   return (
     <div>
@@ -40,7 +26,10 @@ export const Profile = () => {
           <p>{data.para2}</p>
         </div>
       </div>
-      <div className="px-20 py-10 bg-background flex justify-center items-center h-dvh ">
+      {/* <div className="px-20 py-10 bg-background flex justify-center items-center h-dvh ">
+        showreel video here
+      </div> */}
+      <div className="px-20 bg-blue-500 bg-background flex justify-center items-center">
         showreel video here
       </div>
     </div>

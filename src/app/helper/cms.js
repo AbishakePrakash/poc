@@ -5,9 +5,11 @@ export const client = createClient({
   accessToken: "otDYLEhxUeeakPKP_Awm1HM_3-TSGCiegqgAyLDfdHA",
 });
 
-export async function getProfile(input) {
+export async function getProfile() {
   try {
-    const data = await client.getEntries({ content_type: input }); // Fetch all entries
+    const data = await client.getEntries({ content_type: "db" }); // Fetch all entries
+    // console.log({ data });
+
     // console.log(data.items.map((item) => item.fields));
 
     return data.items.map((item) => item.fields);
