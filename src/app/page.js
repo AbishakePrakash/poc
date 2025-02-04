@@ -17,10 +17,10 @@ export default function Home() {
 
   return (
     <div>
-      {/* <Profile />
+      <Profile />
       <Projects />
       <Cv />
-      <Achievements /> */}
+      <Achievements />
       <Contact />
     </div>
   );
