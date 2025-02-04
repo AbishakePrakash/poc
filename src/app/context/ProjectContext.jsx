@@ -16,10 +16,8 @@ const ProjectContext = ({ children }) => {
       try {
         const response = await getProject();
         setData(response);
-        // setProjectData(response);
-        // setExperience(response[0].experience);
-        // setAchievements(response[0].patentsDesignRegistrationsAwardsExhibiti);
-        console.log("Context", response);
+
+        // console.log("Context", response);
       } catch (error) {
         console.error("Err", error);
       }

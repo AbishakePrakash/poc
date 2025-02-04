@@ -11,8 +11,15 @@ export async function getProject() {
     // console.log({ data });
 
     // console.log(data.items.map((item) => item.fields));
+    // console.log("ProjectCall", data);
 
-    return data.items.map((item) => item.fields);
+    const result = data.items.map((item) => ({
+      ...item.fields,
+      id: item.sys.id,
+    }));
+
+    return result;
+    // return data.items.map((item) => item.fields)
   } catch (error) {
     console.error("Error fetching data:", error);
     return null;

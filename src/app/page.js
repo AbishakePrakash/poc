@@ -17,12 +17,11 @@ export default function Home() {
 
   return (
     <div>
-      <FanAnimation />
-      <Profile />
+      {/* <Profile />
       <Projects />
       <Cv />
-      <Achievements />
-      {/* <Contact /> */}
+      <Achievements /> */}
+      <Contact />
     </div>
   );
 }

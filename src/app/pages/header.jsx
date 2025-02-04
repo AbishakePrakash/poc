@@ -1,10 +1,13 @@
+"use client";
+
 import ToggleTheme from "../components/ToggleTheme";
+import FanAnimation from "./fan";
 
 export const Header = () => {
   return (
     <div className="flex justify-between items-center border-b-2 h-[300px] border-[#808080]">
       <div className="flex flex-col border-r-2 h-full border-[#808080] justify-between">
-        <svg
+        {/* <svg
           width="137"
           height="137"
           viewBox="0 0 152 146"
@@ -25,7 +28,8 @@ export const Header = () => {
             d="M92.3579 49.1361C93.1657 47.7892 92.6861 46.0692 91.2824 45.2892C89.8788 44.5139 88.0864 44.9742 87.2735 46.3212L75.5344 65.8323C74.7265 67.1792 75.2062 68.8992 76.6098 69.6792C78.0135 70.4593 79.8059 69.9942 80.6188 68.6472L92.3579 49.1361Z"
             fill="white"
           />
-        </svg>
+        </svg> */}
+        <FanAnimation />
         <p className="px-6 py-2 text-center border-b-2 border-[#808080]">CV</p>
         <p className="px-6 py-2 text-center border-b-2 border-[#808080]">
           CONTACTS

@@ -10,6 +10,7 @@ const DataContext = ({ children }) => {
   const [education, setEducation] = useState(null);
   const [experience, setExperience] = useState(null);
   const [achievements, setAchievements] = useState(null);
+  const [contact, setContact] = useState(null);
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -19,7 +20,8 @@ const DataContext = ({ children }) => {
         setEducation(response[0].education);
         setExperience(response[0].experience);
         setAchievements(response[0].patentsDesignRegistrationsAwardsExhibiti);
-        // console.log("Context", response[0]);
+        setContact(response[0].contact.fields);
+        console.log("Contact", response[0].contact);
       } catch (error) {
         console.error("Err", error);
       }
@@ -30,7 +32,7 @@ const DataContext = ({ children }) => {
 
   return (
     <DataContextApi.Provider
-      value={{ data, education, experience, achievements }}
+      value={{ data, education, experience, achievements, contact }}
     >
       {children}
     </DataContextApi.Provider>

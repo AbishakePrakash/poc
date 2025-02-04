@@ -6,7 +6,7 @@ import { getProfile } from "../helper/cms";
 
 export const Profile = () => {
   const { data } = useProfileData();
-  console.log(data);
+  // console.log(data);
 
   if (!data) return <div>Loadings...</div>;
 

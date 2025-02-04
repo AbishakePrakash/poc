@@ -3,7 +3,7 @@ import { useProjectData } from "../context/ProjectContext";
 
 export const Projects = () => {
   const { data } = useProjectData();
-  console.log(data);
+  // console.log(data);
 
   if (!data) return <div>Loadings...</div>;
   return (

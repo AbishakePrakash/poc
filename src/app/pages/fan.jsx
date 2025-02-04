@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function FanAnimation() {
   const [rotation, setRotation] = useState(0);
   const isDragging = useRef(false);
-  const center = useRef(null);
+  const lastRotation = useRef(0); // Stores the last rotation
 
   const handleMouseDown = () => {
     isDragging.current = true;
@@ -12,40 +12,54 @@ export default function FanAnimation() {
 
   const handleMouseUp = () => {
     isDragging.current = false;
+    lastRotation.current = rotation; // Preserve the last rotation
   };
 
   const handleMouseMove = (e) => {
-    if (isDragging.current && center.current) {
-      const rect = center.current.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
+    if (isDragging.current) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
       const angle =
-        Math.atan2(e.clientY - cy, e.clientX - cx) * (180 / Math.PI);
+        Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI);
       setRotation(angle);
     }
   };
 
   return (
     <div
-      className="flex justify-center items-center  bg-gray-900"
+      className="flex justify-center items-center h-screen bg-gray-900"
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
-      <motion.div
-        ref={center}
-        className="relative w-40 h-40 flex justify-center items-center cursor-grab"
-        style={{ rotate: `${rotation}deg` }}
-        onMouseDown={handleMouseDown}
+      <svg
+        width="152"
+        height="146"
+        viewBox="0 0 152 146"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <div className="absolute w-40 h-40 flex justify-center items-center">
-          <div className="w-full h-full bg-blue-500 rounded-full"></div>
-          <div className="absolute w-5 h-5 bg-gray-800 rounded-full"></div>
-          <div className="absolute w-32 h-2 bg-white rotate-0"></div>
-          <div className="absolute w-32 h-2 bg-white rotate-60"></div>
-          <div className="absolute w-32 h-2 bg-white rotate-120"></div>
-        </div>
-      </motion.div>
+        <rect width="152" height="146" fill="black" />
+        <motion.g
+          animate={{ rotate: rotation }}
+          transformOrigin="50% 50%"
+          onMouseDown={handleMouseDown}
+        >
+          <path
+            d="M67.8345 70.1007H44.3563C42.7355 70.1007 41.4228 71.3605 41.4228 72.9157C41.4228 74.471 42.7355 75.7307 44.3563 75.7307H67.8345C69.4553 75.7307 70.768 74.471 70.768 72.9157C70.768 71.3605 69.4553 70.1007 67.8345 70.1007Z"
+            fill="white"
+          />
+          <path
+            d="M87.2785 99.5102C88.0864 100.857 89.8838 101.317 91.2875 100.542C92.6911 99.767 93.1708 98.0422 92.3629 96.6952L80.6238 77.1841C79.816 75.8372 78.0185 75.3769 76.6149 76.1522C75.2112 76.9274 74.7316 78.6522 75.5394 79.9991L87.2785 99.5102Z"
+            fill="white"
+          />
+          <path
+            d="M92.3579 49.1361C93.1657 47.7892 92.6861 46.0692 91.2824 45.2892C89.8788 44.5139 88.0864 44.9742 87.2735 46.3212L75.5344 65.8323C74.7265 67.1792 75.2062 68.8992 76.6098 69.6792C78.0135 70.4593 79.8059 69.9942 80.6188 68.6472L92.3579 49.1361Z"
+            fill="white"
+          />
+        </motion.g>
+      </svg>
     </div>
   );
 }
