@@ -10,12 +10,14 @@ import { client } from "./helper/cms";
 import { Header } from "./pages/header";
 import { Experience } from "./pages/experience";
 import { Cv } from "./pages/cv";
+import FanAnimation from "./pages/fan";
 
 export default function Home() {
   // const { theme, toggleTheme } = useTheme();
 
   return (
     <div>
+      <FanAnimation />
       <Profile />
       <Projects />
       <Cv />
