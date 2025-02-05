@@ -72,10 +72,33 @@ export default function CardDetail() {
         <h1 className="text-2xl text-copy-primary font-bold">
           {data.projectTitle}
         </h1>
+
         <span className="font-semibold">{data.year}</span>
       </div>
 
-      <p className="mt-2">{data.fullDescription}</p>
+      <div className="space-y-10  py-10 ">
+        {data.projectData.map((item, index) => {
+          return (
+            <div key={index}>
+              <p className="mt-2 px-10 w-full py-10 border-b border-copy-primary ">
+                {item.fields.paragraph}
+              </p>
+
+              <div
+                className="
+        border-b py-10 border-copy-primary px-10 w-full
+        "
+              >
+                <img
+                  className="mx-auto"
+                  src={item.fields.url.fields.file.url}
+                  alt=""
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
