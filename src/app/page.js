@@ -11,6 +11,7 @@ import { Header } from "./pages/header";
 import { Experience } from "./pages/experience";
 import { Cv } from "./pages/cv";
 import FanAnimation from "./pages/fan";
+import { useProjectData } from "./context/ProjectContext";
 
 export default function Home() {
   // const { theme, toggleTheme } = useTheme();

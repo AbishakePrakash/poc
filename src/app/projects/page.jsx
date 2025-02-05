@@ -1,7 +1,9 @@
-import Link from "next/link";
+"use client";
+
+import React from "react";
 import { useProjectData } from "../context/ProjectContext";
 
-export const Projects = () => {
+const page = () => {
   const { data } = useProjectData();
   // console.log(data);
 
@@ -9,13 +11,13 @@ export const Projects = () => {
   return (
     <div className="text-copy-primary px-10 py-10 bg-background">
       <div className=" mx-20 flex justify-between items-center">
-        <h3 className="text-5xl font-normal ">Selected Works</h3>
-        <Link
+        <h3 className="text-5xl font-normal ">All Works</h3>
+        {/* <Link
           href="/allworks"
           className="text-xl cursor-pointer hover:text-copy-secondary"
         >
           All Works &gt;
-        </Link>
+        </Link> */}
       </div>
       <div className=" mx-20 grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-10 ">
         {data.slice(0, 6).map((item, index) => (
@@ -38,3 +40,5 @@ export const Projects = () => {
     </div>
   );
 };
+
+export default page;
