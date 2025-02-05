@@ -1,12 +1,35 @@
 "use client";
 
+import { usePathname, useRouter } from "next/navigation";
 import ToggleTheme from "../components/ToggleTheme";
 import { useProjectData } from "../context/ProjectContext";
 import FanAnimation from "./fan";
+import Link from "next/link";
+import React from "react";
 
 export const Header = () => {
   const { data } = useProjectData();
   const featured = data?.filter((item) => item.featured === true);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleRoute = (path) => {
+    if (pathname.startsWith("/project")) {
+      router.push(path);
+      console.log(path);
+    } else {
+      router.push(`project/${path}`);
+      console.log(`project/${path}`);
+    }
+  };
+
   return (
     <div className="flex justify-between items-center text-copy-primary bg-background border-b-2 h-[300px] border-[#808080]">
       <div className="flex flex-col  border-r-2 h-full border-[#808080] justify-between">
@@ -33,8 +56,16 @@ export const Header = () => {
           />
         </svg> */}
         <FanAnimation />
-        <p className="px-6 py-2 text-center border-b-2 border-[#808080]">CV</p>
-        <p className="px-6 py-2 text-center border-b-2 border-[#808080]">
+        <p
+          onClick={() => handleScroll("cv")}
+          className="px-6 py-2 text-center border-b-2 border-[#808080]"
+        >
+          CV
+        </p>
+        <p
+          onClick={() => handleScroll("contact")}
+          className="px-6 py-2 text-center border-b-2 border-[#808080] cursor-pointer"
+        >
           CONTACTS
         </p>
         <div>
@@ -48,7 +79,7 @@ export const Header = () => {
       </div>
       <div className=" text-white border-l-2 h-full flex items-center justify-center border-[#808080] px-10 ">
         <div className="bg-copy-primary h-[240px] w-[220px] p-4 flex justify-center items-center">
-          <span className="text-cta-text-dark">Project icon Image</span>
+          <span className="text-cta-text-dark ">Project icon Image</span>
         </div>
       </div>
       <div className="h-full border-l border-r border-copy-primary">
@@ -57,7 +88,8 @@ export const Header = () => {
             featured.map((item, index) => (
               <li
                 key={index}
-                className="px-10 py-3 border-b   border-copy-primary"
+                onClick={() => handleRoute(item.id)}
+                className="px-10 py-3 border-b   border-copy-primary cursor-pointer"
                 id="item"
               >
                 {item.projectTitle}

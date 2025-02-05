@@ -10,7 +10,7 @@ export const Projects = () => {
 
   if (!data) return <div>Loadings...</div>;
   return (
-    <div className="text-copy-primary px-10 py-10 bg-background">
+    <div className="text-copy-primary px-20 py-10 bg-background">
       <div className="flex justify-between items-center">
         <h3 className="text-5xl font-normal ">Selected Works</h3>
         <Link

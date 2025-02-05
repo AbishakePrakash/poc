@@ -16,7 +16,8 @@ export const Experience = () => {
   }
 
   return (
-    <div className="mt-10 mx-20">
+    <div className="mt-10 mx-10">
+      <hr className="my-5 border-t-2 border-gray-800" />
       <h3 className="mb-10">Work Experience</h3>
       <div className="space-y-8">
         {experience &&

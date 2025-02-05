@@ -37,9 +37,9 @@ export default function RootLayout({ children }) {
                 {/* <ToggleTheme /> */}
               </nav>
               <main>{children}</main>
-              <footer className="bg-black px-10 py-4 text-center">
-                <h1 className="text-white font-xl text-center ">
-                  Mrprince &copy;
+              <footer className=" px-10 py-4 text-center bg-copy-primary text-copy-secondary">
+                <h1 className=" font-xl text-center ">
+                  Copyrights &copy; Kishore Krishnakumar
                 </h1>
               </footer>
             </ThemeProvider>

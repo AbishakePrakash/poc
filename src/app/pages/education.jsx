@@ -15,7 +15,7 @@ export const Education = () => {
   }
 
   return (
-    <div className="space-y-8 mx-20">
+    <div className="space-y-8 mx-10">
       <h3 className="mt-10 ">Education</h3>
       {education &&
         education.map((item, index) => (

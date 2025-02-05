@@ -9,7 +9,7 @@ export default function CardDetail() {
   // const router = useRouter();
   const { id } = useParams();
   const [data, setData] = useState(null);
-
+  const router = useRouter();
   useEffect(() => {
     if (!id) return;
 
@@ -28,10 +28,7 @@ export default function CardDetail() {
   return (
     <div className="bg-background">
       <div className="border-b w-full border-copy-primary flex justify-between  items-center h-[150px] gap-10 px-20 bg-background">
-        <Link
-          href={"/allworks"}
-          className="flex w-[60%]   p-10 items-center hover:cursor-pointer"
-        >
+        <div className="flex w-[60%]   p-10 items-center hover:cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
@@ -41,8 +38,20 @@ export default function CardDetail() {
           >
             <path fill="currentColor" d="m14 7l-5 5l5 5z" />
           </svg>
-          <h4 className="text-copy-primary text-2xl">All works</h4>
-        </Link>
+          <h4
+            onClick={() => router.push("/")}
+            className="text-copy-primary text-2xl"
+          >
+            Home
+          </h4>
+          <p className="font-semibold mx-5">/</p>
+          <h4
+            onClick={() => router.push("/projects")}
+            className="text-copy-primary text-2xl"
+          >
+            Projects
+          </h4>
+        </div>
         <div className="border-l border-copy-primary border-r h-full flex flex-col justify-evenly ">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -11,8 +11,8 @@ export const Profile = () => {
   if (!data) return <div>Loadings...</div>;
 
   return (
-    <div style={{ backgroundColor: "red" }}>
-      <div className="px-20 py-10 h-dvh bg-background ">
+    <div>
+      <div className="px-20 py-10 h-[400px] bg-background ">
         <div className="text-copy-primary flex items-baseline gap-10">
           <h1 className=" text-[65px] font-normal tracking-widest">
             {data.name}

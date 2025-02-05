@@ -4,7 +4,9 @@ export const Contact = () => {
   const { contact, contactLinks } = useProfileData();
 
   return (
-    <div className="px-10 py-10 bg-background text-copy-primary">
+    <div id="contact" className="px-20 py-10 bg-background text-copy-primary">
+      <hr className="my-5 border-t-2 border-gray-800" />
+
       <h1 className="text-2xl">Contact</h1>
       <div className="bg-copy-secondary mt-10 h-[400px] w-[600px]">
         <img src={contact} alt="profilepic" />
