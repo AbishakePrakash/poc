@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="">
       <ul className="bg-background px-10 py-4 flex justify-between items-center text-copy-primary font-semibold border-b border-copy-primary w-full">
         {navList.map((item, index) => {
-          return <li>{item}</li>;
+          return <li key={index}>{item}</li>;
         })}
       </ul>
     </div>

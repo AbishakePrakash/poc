@@ -1,9 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { useProjectData } from "../context/ProjectContext";
 // import { useContext } from "react";
 // import { SingleProjectData } from "../context/SingleProjectContext";
 
-export const Projects = () => {
+export default function Projects() {
   const { data } = useProjectData();
 
   console.log(data);
@@ -11,19 +13,30 @@ export const Projects = () => {
   if (!data) return <div>Loadings...</div>;
   return (
     <div className="text-copy-primary px-10 py-10 bg-background">
-      <div className="flex justify-between items-center">
-        <h3 className="text-5xl font-normal ">Selected Works</h3>
+      <div className="space-x-4 mb-10">
         <Link
-          href="/allworks"
-          className="text-xl cursor-pointer hover:text-copy-secondary"
+          href={"/"}
+          className="flex w-[60%]    items-center hover:cursor-pointer"
         >
-          All Works &gt;
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            className="text-copy-primary hover:text-copy-primary "
+          >
+            <path fill="currentColor" d="m14 7l-5 5l5 5z" />
+          </svg>
+          <h3 className="text-2xl font-semibold">Home</h3>
         </Link>
       </div>
+      <div className="flex justify-between items-center">
+        <h3 className="text-5xl font-normal ">Selected Works</h3>
+      </div>
       <div className=" grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-10 ">
-        {data.slice(0, 6).map((item, index) => (
+        {data.map((item, index) => (
           <Link
-            href={`card/${item.id}`}
+            href={`project/${item.id}`}
             key={index}
             // style={{ cursor: "pointer" }}
             className="flex flex-col space-y-5 mt-10
@@ -46,4 +59,4 @@ export const Projects = () => {
       </div>
     </div>
   );
-};
+}

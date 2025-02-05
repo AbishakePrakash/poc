@@ -15,7 +15,7 @@ export const Achievements = () => {
   }
 
   return (
-    <div className="h-dvh  mx-20 py-10">
+    <div className=" px-[120px] py-10  bg-background text-copy-primary">
       <h1>Patents / Design registrations / Awards / Exhibitions</h1>
       <div className="mt-10 space-y-10">
         {achievements &&

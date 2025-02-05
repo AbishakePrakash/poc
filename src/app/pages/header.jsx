@@ -1,12 +1,15 @@
 "use client";
 
 import ToggleTheme from "../components/ToggleTheme";
+import { useProjectData } from "../context/ProjectContext";
 import FanAnimation from "./fan";
 
 export const Header = () => {
+  const { data } = useProjectData();
+  const featured = data?.filter((item) => item.featured === true);
   return (
-    <div className="flex justify-between items-center border-b-2 h-[300px] border-[#808080]">
-      <div className="flex flex-col border-r-2 h-full border-[#808080] justify-between">
+    <div className="flex justify-between items-center text-copy-primary bg-background border-b-2 h-[300px] border-[#808080]">
+      <div className="flex flex-col  border-r-2 h-full border-[#808080] justify-between">
         {/* <svg
           width="137"
           height="137"
@@ -38,24 +41,28 @@ export const Header = () => {
           <ToggleTheme />
         </div>
       </div>
-      <div className="">
+      <div className="flex-1 text-center">
         <h1>
           is Industrial Design <strong>,Creating exprience?</strong>
         </h1>
       </div>
       <div className=" text-white border-l-2 h-full flex items-center justify-center border-[#808080] px-10 ">
-        <div className="bg-black h-[240px] w-[220px] p-4 flex justify-center items-center">
-          <span>Project icon Image</span>
+        <div className="bg-copy-primary h-[240px] w-[220px] p-4 flex justify-center items-center">
+          <span className="text-cta-text-dark">Project icon Image</span>
         </div>
       </div>
-      <div className="h-full border-l border-r border-black">
+      <div className="h-full border-l border-r border-copy-primary">
         <ul className="  felx flex-col  w-[300px] text-end">
-          <li className="px-10 py-3 border-b   border-black"> Project 1</li>
-          <li className="px-10 py-3 border-b  border-black "> Project 2</li>
-          <li className="px-10 py-3 border-b  border-black "> Project 3</li>
-          <li className="px-10 py-3 border-b  border-black "> Project 4</li>
-          <li className="px-10 py-3 border-b  border-black "> Project 5</li>
-          <li className="px-10 py-3  border-black"> Project 6</li>
+          {featured &&
+            featured.map((item, index) => (
+              <li
+                key={index}
+                className="px-10 py-3 border-b   border-copy-primary"
+                id="item"
+              >
+                {item.projectTitle}
+              </li>
+            ))}
         </ul>
       </div>
       <span className="-rotate-90 ">&lt; Selected Works</span>

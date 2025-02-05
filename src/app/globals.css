@@ -45,3 +45,7 @@
   --cta-active: var(--cta-active-dark);
   --cta-text: var(--cta-text-dark);
 }
+
+#item:last-child {
+  border: none;
+}
