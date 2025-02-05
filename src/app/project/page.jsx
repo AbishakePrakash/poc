@@ -14,7 +14,7 @@ export const Projects = () => {
       <div className="flex justify-between items-center">
         <h3 className="text-5xl font-normal ">Selected Works</h3>
         <Link
-          href="/project"
+          href="/allworks"
           className="text-xl cursor-pointer hover:text-copy-secondary"
         >
           All Works &gt;

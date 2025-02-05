@@ -5,6 +5,7 @@ import ToggleTheme from "./components/ToggleTheme";
 import DataContext from "./context/DataContext";
 import { Header } from "./pages/header";
 import ProjectContext from "./context/ProjectContext";
+import Navbar from "./pages/navbar";
 // import { CardProvider } from "./context/SingleProjectContext";
 
 const geistSans = Geist({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
             <ThemeProvider>
               <nav>
                 <Header />
+                <Navbar />
                 {/* <ToggleTheme /> */}
               </nav>
               <main>{children}</main>
