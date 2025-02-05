@@ -1,0 +1,81 @@
+"use client";
+import { getSingleProject } from "@/app/helper/projects copy";
+import Link from "next/link";
+// import { SingleProjectData } from "@/app/context/SingleProjectContext";
+import { useRouter, useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+
+export default function CardDetail() {
+  // const router = useRouter();
+  const { id } = useParams();
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    if (!id) return;
+
+    const getSingProjectData = async () => {
+      const responese = await getSingleProject(id);
+      setData(responese);
+      console.log(responese);
+    };
+    getSingProjectData();
+  }, [id]); // ✅ Update context when ID changes
+
+  console.log(data);
+
+  if (!data) return <p>Loading...</p>;
+
+  return (
+    <div className="bg-background">
+      <div className="border-b w-full border-copy-primary flex justify-between  items-center h-[150px] gap-10 px-20 bg-background">
+        <Link
+          href={"/allworks"}
+          className="flex w-[60%]   p-10 items-center hover:cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            className="text-copy-primary hover:text-copy-primary "
+          >
+            <path fill="currentColor" d="m14 7l-5 5l5 5z" />
+          </svg>
+          <h4 className="text-copy-primary text-2xl">All works</h4>
+        </Link>
+        <div className="border-l border-copy-primary border-r h-full flex flex-col justify-evenly ">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            className="border-b text-copy-primary cursor-pointer border-copy-primary hover:text-copy-secondary"
+          >
+            <path fill="currentColor" d="m14 7l-5 5l5 5z" />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            className="rotate-180 text-copy-primary cursor-pointer hover:text-copy-secondary"
+          >
+            <path fill="currentColor" d="m14 7l-5 5l5 5z" />
+          </svg>
+        </div>
+        <div>
+          <span className="text-copy-primary text-2xl">3/12</span>
+        </div>
+      </div>
+
+      <div className="text-copy-primary px-20 py-10 flex justify-between items-center border-b border-copy-primary">
+        <h1 className="text-2xl text-copy-primary font-bold">
+          {data.projectTitle}
+        </h1>
+        <span className="font-semibold">{data.year}</span>
+      </div>
+
+      <p className="mt-2">{data.fullDescription}</p>
+    </div>
+  );
+}

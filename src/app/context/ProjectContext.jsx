@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, createContext, useContext } from "react";
+import { useEffect, useState, createContext, useContext } from "react";
 import { getProject } from "../helper/projects";
 
 const ProjectContextApi = createContext();
@@ -17,7 +17,7 @@ const ProjectContext = ({ children }) => {
         const response = await getProject();
         setData(response);
 
-        // console.log("Context", response);
+        console.log("Context", response);
       } catch (error) {
         console.error("Err", error);
       }

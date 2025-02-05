@@ -5,6 +5,7 @@ import ToggleTheme from "./components/ToggleTheme";
 import DataContext from "./context/DataContext";
 import { Header } from "./pages/header";
 import ProjectContext from "./context/ProjectContext";
+// import { CardProvider } from "./context/SingleProjectContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <DataContext>
+          {/* <CardProvider> */}
           <ProjectContext>
             <ThemeProvider>
               <nav>
@@ -40,6 +42,7 @@ export default function RootLayout({ children }) {
               </footer>
             </ThemeProvider>
           </ProjectContext>
+          {/* </CardProvider> */}
         </DataContext>
       </body>
     </html>

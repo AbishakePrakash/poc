@@ -23,7 +23,7 @@ const DataContext = ({ children }) => {
         setAchievements(response[0].patentsDesignRegistrationsAwardsExhibiti);
         setContact(response[0].contact.fields.image.fields.file.url);
         setContactLinks(response[0].contact.fields.links);
-        console.log("Contact", response[0].contact.fields);
+        // console.log("Contact", response[0]);
       } catch (error) {
         console.error("Err", error);
       }

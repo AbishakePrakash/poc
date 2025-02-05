@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { useProjectData } from "../context/ProjectContext";
+// import { useContext } from "react";
+// import { SingleProjectData } from "../context/SingleProjectContext";
 
 export const Projects = () => {
   const { data } = useProjectData();
-  // console.log(data);
+
+  console.log(data);
 
   if (!data) return <div>Loadings...</div>;
   return (
@@ -19,7 +22,8 @@ export const Projects = () => {
       </div>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-10 ">
         {data.slice(0, 6).map((item, index) => (
-          <div
+          <Link
+            href={`card/${item.id}`}
             key={index}
             style={{ cursor: "pointer" }}
             className="flex flex-col space-y-5 mt-10"
@@ -32,7 +36,7 @@ export const Projects = () => {
               />
             </div>
             <span className="text-copy-primary">{item.projectTitle}</span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
