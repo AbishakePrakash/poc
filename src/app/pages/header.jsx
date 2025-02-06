@@ -72,11 +72,20 @@ export const Header = () => {
           <ToggleTheme />
         </div>
       </div>
-      <div className="flex-1 sm:flex  hidden sm:ml-10 text-center">
+      {/* <div className="flex-1 sm:flex  hidden sm:ml-10 text-center">
         <h1>
           is Industrial Design <strong>,Creating exprience?</strong>
         </h1>
+      </div> */}
+      <div className="flex-1 sm:flex hidden sm:ml-10 text-center">
+        <h1>
+          is Industrial Design{" "}
+          <strong className="animate-vertical inline-block">
+            ,Creating experience?
+          </strong>
+        </h1>
       </div>
+
       <div className="hidden sm:flex text-white border-l-2 h-full  items-center justify-center border-[#808080] px-10 ">
         <div className="bg-copy-primary h-[240px] w-[220px] p-4 flex justify-center items-center">
           <span className="text-cta-text-dark ">Project icon Image</span>

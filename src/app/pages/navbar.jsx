@@ -1,19 +1,29 @@
+"use client";
 import React from "react";
+import { useProjectData } from "../context/ProjectContext";
 
-const navList = ["Profile", "Project", "Education", "Exprience", "Achements"];
-// const navList =["Holosuit","Chimes Rocket","Teller Care","Holo Rover","Mitra","Current Status"]
 const Navbar = () => {
+  const { data } = useProjectData();
+  if (!Array.isArray(data)) {
+    console.warn("Project data is not available yet.");
+    return null;
+  }
+  const pickOne = Math.floor(Math.random() * (data?.length || 1));
+
   return (
-    <div className="">
-      <ul className="bg-background px-10 py-4 flex justify-between items-center text-copy-primary font-semibold border-b border-copy-primary w-full overflow-x-auto whitespace-nowrap space-x-10">
-        {navList.map((item, index) => {
-          return (
-            <li className="shrink-0" key={index}>
-              {item}
-            </li>
-          );
-        })}
-      </ul>
+    <div className="overflow-hidden w-full bg-background border-b border-copy-primary">
+      <div className="flex space-x-10 animate-marquee whitespace-nowrap">
+        {[...data, ...data]?.map((item, index) => (
+          <span
+            className={`shrink-0 px-10 py-4 font-semibold ${
+              index === pickOne ? "bg-black text-white" : "text-copy-primary"
+            }`}
+            key={index}
+          >
+            {item.projectTitle}
+          </span>
+        ))}
+      </div>
     </div>
   );
 };

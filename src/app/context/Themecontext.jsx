@@ -17,12 +17,14 @@ const Themecontext = ({ children }) => {
     setTheme(initialTheme);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
+  const toggleTheme = (selectedTheme = null) => {
+    const newTheme = selectedTheme || (theme === "light" ? "dark" : "light");
+
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
     setTheme(newTheme);
   };
+
   return (
     <ThemeContextApi.Provider value={{ theme, toggleTheme }}>
       {children}
