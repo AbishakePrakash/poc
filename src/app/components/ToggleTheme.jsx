@@ -7,12 +7,23 @@ const ToggleTheme = () => {
 
   return (
     <div className=" z-20">
-      <button
+      <div className="flex items-center justify-center  space-x-4">
+        <span className="cursor-pointer px-4" onClick={toggleTheme}>
+          {theme === "light" ? "🌙" : "🌙"}
+        </span>
+        <span
+          className="bg-black cursor-pointer  px-6 py-2 text-white"
+          onClick={toggleTheme}
+        >
+          {theme === "dark" ? "☀️" : "☀️"}
+        </span>
+      </div>
+      {/* <button
         onClick={toggleTheme}
-        className="px-4 py-2 bg-background text-copy-primary w-full"
+        className="p-1 sm:px-4 sm:py-2 bg-background text-sm  text-copy-primary text-center w-full"
       >
         {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
-      </button>
+      </button> */}
     </div>
   );
 };

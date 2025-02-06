@@ -16,7 +16,7 @@ export default function Home() {
   // const { theme, toggleTheme } = useTheme();
 
   return (
-    <div>
+    <div className="">
       <Profile />
       <Projects />
       <Cv />

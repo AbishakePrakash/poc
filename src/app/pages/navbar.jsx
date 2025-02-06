@@ -5,9 +5,13 @@ const navList = ["Profile", "Project", "Education", "Exprience", "Achements"];
 const Navbar = () => {
   return (
     <div className="">
-      <ul className="bg-background px-10 py-4 flex justify-between items-center text-copy-primary font-semibold border-b border-copy-primary w-full">
+      <ul className="bg-background px-10 py-4 flex justify-between items-center text-copy-primary font-semibold border-b border-copy-primary w-full overflow-x-auto whitespace-nowrap space-x-10">
         {navList.map((item, index) => {
-          return <li key={index}>{item}</li>;
+          return (
+            <li className="shrink-0" key={index}>
+              {item}
+            </li>
+          );
         })}
       </ul>
     </div>

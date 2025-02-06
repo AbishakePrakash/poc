@@ -28,7 +28,7 @@ export default function FanAnimation() {
 
   return (
     <div
-      className="flex justify-center items-center h-screen bg-gray-900"
+      className="flex justify-center items-center h-[100px]  bg-black"
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
@@ -37,6 +37,7 @@ export default function FanAnimation() {
         width="152"
         height="146"
         viewBox="0 0 152 146"
+        className="w-[100px] sm:152 "
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >

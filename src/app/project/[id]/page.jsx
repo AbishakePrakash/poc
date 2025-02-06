@@ -27,8 +27,8 @@ export default function CardDetail() {
 
   return (
     <div className="bg-background">
-      <div className="border-b w-full border-copy-primary flex justify-between  items-center h-[150px] gap-10 px-20 bg-background">
-        <div className="flex w-[60%]   p-10 items-center hover:cursor-pointer">
+      <div className="border-b w-full border-copy-primary flex justify-between  items-center h-[150px] sm:gap-10 sm:px-20 bg-background">
+        <div className="flex w-[60%]   p-2 sm:p-10 items-center hover:cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="40"
@@ -40,14 +40,14 @@ export default function CardDetail() {
           </svg>
           <h4
             onClick={() => router.push("/")}
-            className="text-copy-primary text-2xl"
+            className="text-copy-primary text-xl sm:text-2xl"
           >
             Home
           </h4>
-          <p className="font-semibold mx-5">/</p>
+          <p className="font-semibold mx-2 sm:mx-5">/</p>
           <h4
             onClick={() => router.push("/projects")}
-            className="text-copy-primary text-2xl"
+            className="text-copy-primary text-xl sm:text-2xl"
           >
             Projects
           </h4>
@@ -58,7 +58,10 @@ export default function CardDetail() {
             width="40"
             height="40"
             viewBox="0 0 24 24"
-            className="border-b text-copy-primary cursor-pointer border-copy-primary hover:text-copy-secondary"
+            className="border-b
+            border-copy-primary
+            text-copy-primary cursor-pointer 
+            w-[30px] sm:w-[40px]border-copy-primary hover:text-copy-secondary"
           >
             <path fill="currentColor" d="m14 7l-5 5l5 5z" />
           </svg>
@@ -67,13 +70,17 @@ export default function CardDetail() {
             width="40"
             height="40"
             viewBox="0 0 24 24"
-            className="rotate-180 text-copy-primary cursor-pointer hover:text-copy-secondary"
+            className="rotate-180 text-copy-primary cursor-pointer
+            w-[30px] sm:w-[40px]
+             hover:text-copy-secondary"
           >
             <path fill="currentColor" d="m14 7l-5 5l5 5z" />
           </svg>
         </div>
         <div>
-          <span className="text-copy-primary text-2xl">3/12</span>
+          <span className="text-copy-primary text-xl mr-4 sm:mr-0 sm:text-2xl">
+            3/12
+          </span>
         </div>
       </div>
 

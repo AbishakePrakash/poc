@@ -10,17 +10,17 @@ export const Projects = () => {
 
   if (!data) return <div>Loadings...</div>;
   return (
-    <div className="text-copy-primary px-20 py-10 bg-background">
-      <div className="flex justify-between items-center">
-        <h3 className="text-5xl font-normal ">Selected Works</h3>
+    <div className="text-copy-primary px-10 sm:px-20 py-10 bg-background">
+      <div className="flex justify-between flex-col sm:flex-row items-start sm:items-center space-y-4">
+        <h3 className="text-3xl sm:text-5xl  font-normal ">Selected Works</h3>
         <Link
           href="/project"
-          className="text-xl cursor-pointer hover:text-copy-secondary"
+          className="text-2xl cursor-pointer sm:text-xl hover:text-copy-secondary"
         >
           All Works &gt;
         </Link>
       </div>
-      <div className=" grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-10 ">
+      <div className=" grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] sm:gap-10 gap-4 ">
         {data.slice(0, 6).map((item, index) => (
           <Link
             href={`card/${item.id}`}

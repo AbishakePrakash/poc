@@ -58,13 +58,13 @@ export const Header = () => {
         <FanAnimation />
         <p
           onClick={() => handleScroll("cv")}
-          className="px-6 py-2 text-center border-b-2 border-[#808080]"
+          className="p-1 sm:px-6 sm:py-2 text-center border-b-2 border-[#808080]"
         >
           CV
         </p>
         <p
           onClick={() => handleScroll("contact")}
-          className="px-6 py-2 text-center border-b-2 border-[#808080] cursor-pointer"
+          className="p-1 sm:px-6 sm:py-2 text-center border-b-2 border-[#808080] cursor-pointer"
         >
           CONTACTS
         </p>
@@ -72,18 +72,18 @@ export const Header = () => {
           <ToggleTheme />
         </div>
       </div>
-      <div className="flex-1 text-center">
+      <div className="flex-1 sm:flex  hidden sm:ml-10 text-center">
         <h1>
           is Industrial Design <strong>,Creating exprience?</strong>
         </h1>
       </div>
-      <div className=" text-white border-l-2 h-full flex items-center justify-center border-[#808080] px-10 ">
+      <div className="hidden sm:flex text-white border-l-2 h-full  items-center justify-center border-[#808080] px-10 ">
         <div className="bg-copy-primary h-[240px] w-[220px] p-4 flex justify-center items-center">
           <span className="text-cta-text-dark ">Project icon Image</span>
         </div>
       </div>
       <div className="h-full border-l border-r border-copy-primary">
-        <ul className="  felx flex-col  w-[300px] text-end">
+        <ul className="  felx flex-col w-[250px]  sm:w-[300px]  text-end">
           {featured &&
             featured.map((item, index) => (
               <li
@@ -97,7 +97,9 @@ export const Header = () => {
             ))}
         </ul>
       </div>
-      <span className="-rotate-90 ">&lt; Selected Works</span>
+      <span className="-rotate-90 text-sm sm:text-[20px] text-nowrap ">
+        &lt; Selected Works
+      </span>
     </div>
   );
 };

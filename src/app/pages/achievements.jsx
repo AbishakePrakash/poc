@@ -15,7 +15,7 @@ export const Achievements = () => {
   }
 
   return (
-    <div className=" px-20 py-10  bg-background text-copy-primary">
+    <div className="px-10 sm:px-20 sm:py-10  bg-background text-copy-primary">
       <hr className="my-5 border-t-2 border-gray-800" />
 
       <h1>Patents / Design registrations / Awards / Exhibitions</h1>
