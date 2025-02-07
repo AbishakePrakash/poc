@@ -21,11 +21,11 @@ const AnimatedText = () => {
   }, []);
 
   return (
-    <div className="relative h-10 overflow-hidden">
+    <div className="relative h-10 overflow-hidden min-w-[250px]">
       {textList.map((text, i) => (
         <span
           key={i}
-          className={`absolute left-0 right-0 text-black font-bold text-xl text-center transition-opacity duration-500 ${
+          className={`absolute left-0 right-0 text-black font-bold text-2xl text-center transition-opacity duration-500 ${
             i === index ? "animate-fadeSlide" : "opacity-0"
           }`}
         >

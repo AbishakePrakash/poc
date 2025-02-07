@@ -1,10 +1,14 @@
+"use client";
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export default function FanAnimation() {
   const [rotation, setRotation] = useState(0);
   const isDragging = useRef(false);
   const lastRotation = useRef(0); // Stores the last rotation
+
+  const router = useRouter();
 
   // const handleMouseDown = () => {
   //   isDragging.current = true;
@@ -28,6 +32,7 @@ export default function FanAnimation() {
 
   return (
     <div
+      onClick={() => router.push("/")}
       className="flex justify-center items-center   bg-black "
       // onMouseMove={handleMouseMove}
       // onMouseUp={handleMouseUp}

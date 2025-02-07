@@ -96,9 +96,9 @@ export const Header = () => {
             <ToggleTheme />
           </div>
         </div>
-        <div className="flex-1 sm:ml-20 sm:flex  hidden  text-center">
-          <h1 className="grid grid-cols-2 gap-2">
-            is Industrial Design
+        <div className="flex-1 sm:ml-20 sm:flex text-2xl hidden  text-center">
+          <h1 className=" flex ml-40 ">
+            is Industrial Design,
             <strong className="">
               <AnimatedText />
             </strong>
@@ -127,7 +127,7 @@ export const Header = () => {
         </div>
         <a
           href="#sworks"
-          className="-rotate-90 w-[50px] text-sm sm:text-[20px] text-nowrap "
+          className="-rotate-90  text-sm sm:text-[20px] text-nowrap "
         >
           &lt; Selected Works
         </a>
