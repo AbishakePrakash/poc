@@ -3,6 +3,7 @@
 @tailwind utilities;
 /* globals.css or tailwind.css */
 :root {
+  scroll-behavior: smooth;
   --background-light: 245, 245, 245;
   --border-light: 212, 212, 212;
   --card-light: 255, 255, 255;

@@ -7,6 +7,7 @@ import FanAnimation from "./fan";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import AnimatedText from "./titleAnimation";
+// import Projects from "../pages/projects";
 
 const textList = [
   "Creating experience?",
@@ -49,28 +50,28 @@ export const Header = () => {
 
   return (
     <div className="flex justify-between items-center text-copy-primary bg-background border-b-2 h-[300px] border-[#808080]">
-      <div className="flex flex-col  border-r-2 h-full border-[#808080] justify-between">
+      <div className="flex flex-col  border-r-2 h-full border-[#808080] justify-between ">
         <FanAnimation />
         <p
           onClick={() => handleScroll("cv")}
-          className="p-1 sm:px-6 sm:py-2 text-center border-b-2 border-[#808080]"
+          className="p-1 sm:px-4 sm:py-2   text-center border-b-2 border-[#808080]"
         >
           CV
         </p>
         <p
           onClick={() => handleScroll("contact")}
-          className="p-1 sm:px-6 sm:py-2 text-center border-b-2 border-[#808080] cursor-pointer"
+          className="p-1 sm:px-4 sm:py-2 text-center border-b-2 border-[#808080] cursor-pointer"
         >
           CONTACTS
         </p>
-        <div>
+        <div className="p-1 w-full">
           <ToggleTheme />
         </div>
       </div>
-      <div className="flex-1 sm:flex hidden sm:ml-10 text-center">
-        <h1>
-          <span>is Industrial Design </span>
-          <strong className="inline-bloack">
+      <div className="flex-1 sm:ml-20 sm:flex  hidden  text-center">
+        <h1 className="grid grid-cols-2 gap-2">
+          is Industrial Design
+          <strong className="inline-block">
             <AnimatedText />
           </strong>
         </h1>
@@ -96,9 +97,13 @@ export const Header = () => {
             ))}
         </ul>
       </div>
-      <span className="-rotate-90 text-sm sm:text-[20px] text-nowrap ">
+      <a
+        // href={<Projects />}
+        href="#sworks"
+        className="-rotate-90 text-sm sm:text-[20px] text-nowrap "
+      >
         &lt; Selected Works
-      </span>
+      </a>
     </div>
   );
 };

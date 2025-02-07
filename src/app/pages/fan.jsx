@@ -6,47 +6,43 @@ export default function FanAnimation() {
   const isDragging = useRef(false);
   const lastRotation = useRef(0); // Stores the last rotation
 
-  const handleMouseDown = () => {
-    isDragging.current = true;
-  };
+  // const handleMouseDown = () => {
+  //   isDragging.current = true;
+  // };
 
-  const handleMouseUp = () => {
-    isDragging.current = false;
-    lastRotation.current = rotation; // Preserve the last rotation
-  };
+  // const handleMouseUp = () => {
+  //   isDragging.current = false;
+  //   lastRotation.current = rotation; // Preserve the last rotation
+  // };
 
-  const handleMouseMove = (e) => {
-    if (isDragging.current) {
-      const rect = e.currentTarget.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const angle =
-        Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI);
-      setRotation(angle);
-    }
-  };
+  // const handleMouseMove = (e) => {
+  //   if (isDragging.current) {
+  //     const rect = e.currentTarget.getBoundingClientRect();
+  //     const centerX = rect.left + rect.width / 2;
+  //     const centerY = rect.top + rect.height / 2;
+  //     const angle =
+  //       Math.atan2(e.clientY - centerY, e.clientX - centerX) * (180 / Math.PI);
+  //     setRotation(angle);
+  //   }
+  // };
 
   return (
     <div
-      className="flex justify-center items-center h-[100px]  bg-black"
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
+      className="flex justify-center items-center   bg-black "
+      // onMouseMove={handleMouseMove}
+      // onMouseUp={handleMouseUp}
+      // onMouseLeave={handleMouseUp}
     >
       <svg
         width="152"
         height="146"
         viewBox="0 0 152 146"
-        className="w-[100px] sm:152 "
+        className="w-[100px] sm:w-[162] group cursor-pointer"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <rect width="152" height="146" fill="black" />
-        <motion.g
-          animate={{ rotate: rotation }}
-          transformOrigin="50% 50%"
-          onMouseDown={handleMouseDown}
-        >
+        <g className="origin-center group-hover:animate-spin duration-[2000ms] ease-linear">
           <path
             d="M67.8345 70.1007H44.3563C42.7355 70.1007 41.4228 71.3605 41.4228 72.9157C41.4228 74.471 42.7355 75.7307 44.3563 75.7307H67.8345C69.4553 75.7307 70.768 74.471 70.768 72.9157C70.768 71.3605 69.4553 70.1007 67.8345 70.1007Z"
             fill="white"
@@ -59,7 +55,7 @@ export default function FanAnimation() {
             d="M92.3579 49.1361C93.1657 47.7892 92.6861 46.0692 91.2824 45.2892C89.8788 44.5139 88.0864 44.9742 87.2735 46.3212L75.5344 65.8323C74.7265 67.1792 75.2062 68.8992 76.6098 69.6792C78.0135 70.4593 79.8059 69.9942 80.6188 68.6472L92.3579 49.1361Z"
             fill="white"
           />
-        </motion.g>
+        </g>
       </svg>
     </div>
   );

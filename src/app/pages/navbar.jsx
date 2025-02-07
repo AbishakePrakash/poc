@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useProjectData } from "../context/ProjectContext";
+import Marquee from "react-fast-marquee";
 
 const Navbar = () => {
   const { data } = useProjectData();
@@ -12,10 +13,16 @@ const Navbar = () => {
 
   return (
     <div className="overflow-hidden w-full bg-background border-b border-copy-primary">
-      <div className="flex space-x-10 animate-marquee whitespace-nowrap">
+      <Marquee
+        direction="left"
+        loop={0}
+        speed={150}
+        gradient={false}
+        className="flex py-4 space-x-10 overflow-y-hidden  whitespace-nowrap"
+      >
         {[...data, ...data]?.map((item, index) => (
           <span
-            className={`shrink-0 px-10 py-4 font-semibold ${
+            className={`shrink-0 px-10 py-5 font-semibold ${
               index === pickOne ? "bg-black text-white" : "text-copy-primary"
             }`}
             key={index}
@@ -23,7 +30,7 @@ const Navbar = () => {
             {item.projectTitle}
           </span>
         ))}
-      </div>
+      </Marquee>
     </div>
   );
 };

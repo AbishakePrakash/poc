@@ -1,8 +1,8 @@
 import { createClient } from "contentful";
 
 export const client = createClient({
-  space: "hhp4ap9ig4h0",
-  accessToken: "otDYLEhxUeeakPKP_Awm1HM_3-TSGCiegqgAyLDfdHA",
+  space: process.env.NEXT_PUBLIC_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_ACCESSTOKEN,
 });
 
 export async function getSingleProject(id) {

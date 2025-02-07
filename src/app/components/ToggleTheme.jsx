@@ -6,16 +6,16 @@ const ToggleTheme = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="z-20">
-      <div className="flex items-center justify-center  space-x-4">
+    <div className="">
+      <div className="flex items-center justify-center ">
         <span
-          className="cursor-pointer px-4"
+          className="cursor-pointer  px-4 py-2"
           onClick={() => toggleTheme("dark")}
         >
           ⏾
         </span>
         <span
-          className="bg-copy-primary text-copy-secondary cursor-pointer px-6 py-2 "
+          className="bg-copy-primary text-copy-secondary cursor-pointer px-6  py-3"
           onClick={() => toggleTheme("light")}
         >
           ☀︎
