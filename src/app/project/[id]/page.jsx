@@ -26,7 +26,7 @@ export default function CardDetail() {
   if (!data) return <p>Loading...</p>;
 
   return (
-    <div className="bg-background">
+    <div className="bg-background mt-[350px] ">
       <div className="border-b w-full border-copy-primary flex justify-between  items-center h-[150px] sm:gap-10 sm:px-20 bg-background">
         <div className="flex w-[60%]   p-2 sm:p-10 items-center hover:cursor-pointer">
           <svg
@@ -59,9 +59,9 @@ export default function CardDetail() {
             height="40"
             viewBox="0 0 24 24"
             className="border-b
-            border-copy-primary
+           
             text-copy-primary cursor-pointer 
-            w-[30px] sm:w-[40px]border-copy-primary hover:text-copy-secondary"
+            w-[30px] sm:w-[40px] border-copy-primary hover:text-copy-secondary"
           >
             <path fill="currentColor" d="m14 7l-5 5l5 5z" />
           </svg>

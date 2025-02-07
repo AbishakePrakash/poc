@@ -26,7 +26,7 @@ export const Projects = () => {
       <div className=" grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] sm:gap-10 gap-4 ">
         {data.slice(0, 6).map((item, index) => (
           <Link
-            href={`card/${item.id}`}
+            href={`project/${item.id}`}
             key={index}
             // style={{ cursor: "pointer" }}
             className="flex flex-col space-y-5 mt-10

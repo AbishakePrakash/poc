@@ -1,9 +1,27 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useProjectData } from "../context/ProjectContext";
 import Marquee from "react-fast-marquee";
 
 const Navbar = () => {
+  const [showHeader, setShowHeader] = useState(0);
+  const [lastScrollY, setLastScrollY] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY < lastScrollY) {
+        setShowHeader(true);
+      } else {
+        setShowHeader(false);
+      }
+      setLastScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
   const { data } = useProjectData();
   if (!Array.isArray(data)) {
     console.warn("Project data is not available yet.");
@@ -12,7 +30,12 @@ const Navbar = () => {
   const pickOne = Math.floor(Math.random() * (data?.length || 1));
 
   return (
-    <div className="overflow-hidden w-full bg-background border-b border-copy-primary">
+    <div
+      className={`fixed  overflow-hidden w-full bg-background border-b border-copy-primary
+      transition-transform duration-300
+    ${showHeader ? "translate-y-0" : "-translate-y-full"}
+    `}
+    >
       <Marquee
         direction="left"
         loop={0}

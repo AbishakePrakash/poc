@@ -12,7 +12,7 @@ export const Profile = () => {
 
   return (
     <div className="">
-      <div className="px-10 sm:px-20 py-10 h-[400px] bg-background ">
+      <div className="mt-[340px] px-10 sm:px-20 py-10 h-[400px] bg-background ">
         <div className="text-copy-primary flex flex-col sm:flex-row items-baseline sm:gap-10 ">
           <h1 className="text-[28px] sm:text-[65px] sm:font-normal tracking-widest font-semibold">
             {data.name}

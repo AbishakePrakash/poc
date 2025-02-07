@@ -28,13 +28,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <DataContext>
-          {/* <CardProvider> */}
           <ProjectContext>
             <ThemeProvider>
               <nav>
                 <Header />
-                <Navbar />
-                {/* <ToggleTheme /> */}
+                {/* <Navbar /> */}
               </nav>
               <main>{children}</main>
               <footer className=" px-10 py-4 text-center bg-copy-primary text-copy-secondary">

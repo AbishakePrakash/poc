@@ -11,12 +11,15 @@ import { Header } from "./pages/header";
 import { Experience } from "./pages/experience";
 import { Cv } from "./pages/cv";
 import FanAnimation from "./pages/fan";
+import Navbar from "./pages/navbar";
 
 export default function Home() {
   // const { theme, toggleTheme } = useTheme();
 
   return (
     <div className="">
+      {/* <Header />
+      <Navbar /> */}
       <Profile />
       <Projects />
       <Cv />
