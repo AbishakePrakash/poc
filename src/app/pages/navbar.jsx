@@ -2,10 +2,13 @@
 import React, { useEffect, useState } from "react";
 import { useProjectData } from "../context/ProjectContext";
 import Marquee from "react-fast-marquee";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [showHeader, setShowHeader] = useState(0);
   const [lastScrollY, setLastScrollY] = useState(true);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +30,17 @@ const Navbar = () => {
     console.warn("Project data is not available yet.");
     return null;
   }
-  const pickOne = Math.floor(Math.random() * (data?.length || 1));
+  const pickOne = 3;
+
+  const handleRoute = (path) => {
+    if (pathname.startsWith("/project")) {
+      router.push(path);
+      console.log(path);
+    } else {
+      router.push(`project/${path}`);
+      console.log(`project/${path}`);
+    }
+  };
 
   return (
     <div
@@ -45,10 +58,11 @@ const Navbar = () => {
       >
         {[...data, ...data]?.map((item, index) => (
           <span
-            className={`shrink-0 px-10 py-5 font-semibold ${
+            className={`shrink-0 px-10 py-5 font-semibold cursor-pointer ${
               index === pickOne ? "bg-black text-white" : "text-copy-primary"
             }`}
             key={index}
+            onClick={() => handleRoute(item.id)}
           >
             {item.projectTitle}
           </span>

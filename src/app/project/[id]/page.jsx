@@ -38,13 +38,13 @@ export default function CardDetail() {
           >
             <path fill="currentColor" d="m14 7l-5 5l5 5z" />
           </svg>
-          <h4
+          {/* <h4
             onClick={() => router.push("/")}
             className="text-copy-primary text-xl sm:text-2xl"
           >
             Home
-          </h4>
-          <p className="font-semibold mx-2 sm:mx-5">/</p>
+          </h4> */}
+          {/* <p className="font-semibold mx-2 sm:mx-5">/</p> */}
           <h4
             onClick={() => router.push("/projects")}
             className="text-copy-primary text-xl sm:text-2xl"
