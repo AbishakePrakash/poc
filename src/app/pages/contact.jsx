@@ -10,7 +10,7 @@ export const Contact = () => {
     >
       <hr className="my-5 border-t-2 border-gray-800" />
 
-      <h1 className="text-xl sm:text-2xl">Contact</h1>
+      <h1 className="text-xl sm:text-2xl font-bold">Contact</h1>
       <div className="bg-copy-secondary mt-10 w-[300px] sm:h-[400px] sm:w-[600px]">
         <img src={contact} alt="profilepic" />
         <div className="flex justify-between flex-col sm:flex-row items-start space-y-2 font-semibold sm:font-normal sm:space-y-0 sm:items-center sm:space-x-10">
