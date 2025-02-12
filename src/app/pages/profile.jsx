@@ -12,7 +12,7 @@ export const Profile = () => {
     const result = JSON.parse(localStorage.getItem("header"));
     setHeader(result);
   };
-  console.log("result", header);
+  // console.log("result", header);
 
   useEffect(() => {
     updateHeader();

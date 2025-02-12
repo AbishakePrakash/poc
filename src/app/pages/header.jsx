@@ -7,6 +7,8 @@ import FanAnimation from "./fan";
 import React, { useEffect, useState } from "react";
 import AnimatedText from "./titleAnimation";
 import Navbar from "./navbar";
+import { useTheme } from "../context/Themecontext";
+import { WordRotateDemo } from "./marqueeText";
 
 const textList = [
   "Creating experience?",
@@ -24,6 +26,7 @@ export const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [index, setIndex] = useState(0);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -108,7 +111,11 @@ export const Header = () => {
         </div>
 
         <div className="hidden sm:flex text-white border-l-2 h-full  items-center justify-center border-[#808080] px-10 ">
-          <div className="bg-copy-primary h-[240px] w-[220px] p-4 flex justify-center items-center ">
+          <div
+            className={` h-[240px] w-[220px] p-4 flex justify-center items-center ${
+              theme === "light" ? "bg-black text-white" : "bg-white text-black"
+            } `}
+          >
             <span className="text-cta-text-dark ">Project icon Image</span>
           </div>
         </div>

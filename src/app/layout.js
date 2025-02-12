@@ -6,6 +6,7 @@ import DataContext from "./context/DataContext";
 import { Header } from "./pages/header";
 import ProjectContext from "./context/ProjectContext";
 import Navbar from "./pages/navbar";
+import Footer from "./pages/footer";
 // import { CardProvider } from "./context/SingleProjectContext";
 
 const geistSans = Geist({
@@ -35,11 +36,7 @@ export default function RootLayout({ children }) {
                 {/* <Navbar /> */}
               </nav>
               <main>{children}</main>
-              <footer className=" px-10 py-4 text-center bg-copy-primary text-copy-secondary">
-                <h1 className=" font-xl text-center ">
-                  Copyrights &copy; Kishore Krishnakumar
-                </h1>
-              </footer>
+              <Footer />
             </ThemeProvider>
           </ProjectContext>
           {/* </CardProvider> */}

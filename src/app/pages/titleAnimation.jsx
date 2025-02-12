@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Marquee from "react-fast-marquee";
 
 const textList = [
   "Creating experience?",
@@ -25,7 +26,7 @@ const AnimatedText = () => {
       {textList.map((text, i) => (
         <span
           key={i}
-          className={`absolute left-0 right-0 text-black font-bold text-2xl text-center transition-opacity duration-500 ${
+          className={`absolute left-0 right-0 text-copy-primary font-bold text-2xl text-center transition-opacity duration-900 ${
             i === index ? "animate-fadeSlide" : "opacity-0"
           }`}
         >
@@ -33,6 +34,20 @@ const AnimatedText = () => {
         </span>
       ))}
     </div>
+    // <div>
+    //   <Marquee direction="up" autoFill loop={0}>
+    //     {textList.map((text, i) => (
+    //       <span
+    //         key={i}
+    //         className={`absolute left-0 right-0 text-copy-primary font-bold text-2xl text-center transition-opacity duration-500 ${
+    //           i === index ? "animate-fadeSlide" : "opacity-0"
+    //         }`}
+    //       >
+    //         {text}
+    //       </span>
+    //     ))}
+    //   </Marquee>
+    // </div>
   );
 };
 
