@@ -37,8 +37,10 @@ export const Header = () => {
     const handleScrolll = () => {
       if (window.scrollY < lastScrollY) {
         setShowHeader(true);
+        localStorage.setItem("header", JSON.stringify(true));
       } else {
         setShowHeader(false);
+        localStorage.setItem("header", JSON.stringify(false));
       }
       setLastScrollY(window.scrollY);
     };
@@ -68,7 +70,7 @@ export const Header = () => {
 
   return (
     <div
-      className={` fixed w-full transition-transform duration-300 top-0 left-0
+      className={` fixed w-full transition-transform duration-300 top-0 left-0 z-50
         
         ${showHeader ? "translate-y-0" : "-translate-y-full"}
     `}

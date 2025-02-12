@@ -6,13 +6,34 @@ import { getProfile } from "../helper/cms";
 
 export const Profile = () => {
   const { data } = useProfileData();
-  // console.log(data);
+  const [header, setHeader] = useState(null);
 
+  const updateHeader = () => {
+    const result = JSON.parse(localStorage.getItem("header"));
+    setHeader(result);
+  };
+  console.log("result", header);
+
+  useEffect(() => {
+    updateHeader();
+
+    const interval = setInterval(() => {
+      updateHeader();
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  console.log();
   if (!data) return <div>Loadings...</div>;
 
   return (
     <div className="">
-      <div className="mt-[340px] px-10 sm:px-20 py-10 h-[400px] bg-background ">
+      <div
+        className={`${
+          header ? "mt-[340px]" : "mt-0"
+        } px-10 sm:px-20 py-10 h-[400px] bg-background `}
+      >
         <div className="text-copy-primary flex flex-col sm:flex-row items-baseline sm:gap-10 ">
           <h1 className="text-[28px] sm:text-[65px] sm:font-normal tracking-widest font-semibold">
             {data.name}

@@ -2,17 +2,38 @@
 
 import Link from "next/link";
 import { useProjectData } from "../context/ProjectContext";
+import { useEffect, useState } from "react";
 // import { useContext } from "react";
 // import { SingleProjectData } from "../context/SingleProjectContext";
 
 export default function Projects() {
   const { data } = useProjectData();
+  const [header, setHeader] = useState();
+
+  const updateHeader = () => {
+    const result = JSON.parse(localStorage.getItem("header"));
+    setHeader(result);
+  };
+
+  useEffect(() => {
+    updateHeader();
+
+    const interval = setInterval(() => {
+      updateHeader();
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
 
   console.log(data);
 
   if (!data) return <div>Loadings...</div>;
   return (
-    <div className="text-copy-primary px-10 py-10 bg-background">
+    <div
+      className={`text-copy-primary px-10 py-10 bg-background ${
+        header ? "mt-[350px]" : "mt-0"
+      }`}
+    >
       <div className="space-x-4 mb-10">
         <Link
           href={"/"}

@@ -10,6 +10,7 @@ export default function CardDetail() {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const router = useRouter();
+  const [header, setHeader] = useState(null);
   useEffect(() => {
     if (!id) return;
 
@@ -19,14 +20,29 @@ export default function CardDetail() {
       console.log(responese);
     };
     getSingProjectData();
-  }, [id]); // ✅ Update context when ID changes
+  }, [id]);
+
+  const updateHeader = () => {
+    const result = JSON.parse(localStorage.getItem("header"));
+    setHeader(result);
+  };
+
+  useEffect(() => {
+    updateHeader();
+
+    const interval = setInterval(() => {
+      updateHeader();
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
 
   console.log(data);
 
   if (!data) return <p>Loading...</p>;
 
   return (
-    <div className="bg-background mt-[350px] ">
+    <div className={`"bg-background ${header ? "mt-[350px]" : "mt-0"} "`}>
       <div className="border-b w-full border-copy-primary flex justify-between  items-center h-[150px] sm:gap-10 sm:px-20 bg-background">
         <div className="flex w-[60%]   p-2 sm:p-10 items-center hover:cursor-pointer">
           <svg
