@@ -78,7 +78,7 @@ export const Header = () => {
       
     `}
       >
-        <div className="flex flex-col  border-r-2 h-full border-[#808080] justify-between ">
+        <div className="flex flex-col  border-r-2 h-full border-[#808080] justify-between w-[250px] sm:w-[150px] ">
           <FanAnimation />
           <p
             onClick={() => handleScroll("cv")}
@@ -92,7 +92,7 @@ export const Header = () => {
           >
             CONTACTS
           </p>
-          <div className="p-1 w-full">
+          <div className="w-full">
             <ToggleTheme />
           </div>
         </div>
