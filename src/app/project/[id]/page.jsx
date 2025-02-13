@@ -1,4 +1,5 @@
 "use client";
+import { getProject } from "@/app/helper/projects";
 import { getSingleProject } from "@/app/helper/projects copy";
 import Link from "next/link";
 // import { SingleProjectData } from "@/app/context/SingleProjectContext";
@@ -11,20 +12,51 @@ export default function CardDetail() {
   const [data, setData] = useState(null);
   const router = useRouter();
   const [header, setHeader] = useState(null);
-  useEffect(() => {
-    if (!id) return;
+  const [projectId, setProjectId] = useState(id);
+  const [length, setLength] = useState(0);
 
-    const getSingProjectData = async () => {
-      const responese = await getSingleProject(id);
-      setData(responese);
-      console.log(responese);
+  // useEffect(() => {
+  //   if (!projectId) return;
+
+  //   const getSingProjectData = async () => {
+  //     const responese = await getSingleProject(projectId);
+  //     setData(responese);
+  //     console.log(responese);
+  //   };
+  //   getSingProjectData();
+  // }, [projectId]);
+
+  useEffect(() => {
+    if (!projectId) return;
+
+    const getProjects = async () => {
+      const response = await getProject();
+      setLength(response.length);
+      console.log("response.length", response.length);
+
+      localStorage.setItem("projectId", JSON.stringify(projectId));
+
+      const targetProject = response.sort((a, b) => a.projectId - b.projectId)[
+        projectId - 1
+      ];
+      setData(targetProject);
+      console.log({
+        paramsId: projectId,
+        projectId: targetProject?.projectId,
+      });
     };
-    getSingProjectData();
-  }, [id]);
+    getProjects();
+  }, [projectId]);
 
   const updateHeader = () => {
     const result = JSON.parse(localStorage.getItem("header"));
     setHeader(result);
+  };
+
+  const handleNavigation = (id, string) => {
+    console.log(projectId, length);
+
+    setProjectId(projectId == length ? 1 : parseInt(projectId) + 1);
   };
 
   useEffect(() => {
@@ -37,7 +69,7 @@ export default function CardDetail() {
     return () => clearInterval(interval);
   }, []);
 
-  console.log(data);
+  // console.log("data:", data);
 
   if (!data) return <p>Loading...</p>;
 
@@ -70,6 +102,9 @@ export default function CardDetail() {
         </div>
         <div className="border-l border-copy-primary border-r h-full flex flex-col justify-evenly ">
           <svg
+            onClick={() =>
+              setProjectId(projectId == 1 ? length : parseInt(projectId) - 1)
+            }
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
@@ -82,6 +117,9 @@ export default function CardDetail() {
             <path fill="currentColor" d="m14 7l-5 5l5 5z" />
           </svg>
           <svg
+            onClick={() =>
+              setProjectId(projectId == length ? 1 : parseInt(projectId) + 1)
+            }
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
@@ -95,7 +133,7 @@ export default function CardDetail() {
         </div>
         <div>
           <span className="text-copy-primary text-xl mr-4 sm:mr-0 sm:text-2xl">
-            3/12
+            {data.projectId}/{length}
           </span>
         </div>
       </div>

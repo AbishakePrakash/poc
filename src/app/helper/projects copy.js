@@ -5,11 +5,24 @@ export const client = createClient({
   accessToken: process.env.NEXT_PUBLIC_ACCESSTOKEN,
 });
 
-export async function getSingleProject(id) {
+export async function getSingleProject(projectId) {
   try {
-    const data = await client.getEntry(id); // Fetch all entries
+    console.log("Server", projectId);
 
-    return { ...data.fields, id: data.sys.id };
+    // const data = await client.getEntries({
+    //   content_type: "projects", // Replace with your content type ID
+    //   "fields.projectId": projectId, // Filtering by projectId field
+    //   limit: 1,
+    // });
+
+    const data = await client.getEntries({
+      content_type: "projects",
+    });
+    console.log(data.items[0]?.fields); // Check field names in Contentful
+
+    console.log(data);
+    return data;
+    // return { ...data.fields, id: data.sys.id };
   } catch (error) {
     console.error("Error fetching data:", error);
     return null;

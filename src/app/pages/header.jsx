@@ -125,7 +125,7 @@ export const Header = () => {
               featured.map((item, index) => (
                 <li
                   key={index}
-                  onClick={() => handleRoute(item.id)}
+                  onClick={() => handleRoute(item.projectId)}
                   className="px-10 py-3 border-b   border-copy-primary cursor-pointer"
                   id="item"
                 >

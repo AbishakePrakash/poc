@@ -6,7 +6,7 @@ import { useProjectData } from "../context/ProjectContext";
 export const Projects = () => {
   const { data } = useProjectData();
 
-  console.log(data);
+  // console.log(data);
 
   if (!data) return <div>Loadings...</div>;
   return (
@@ -26,7 +26,7 @@ export const Projects = () => {
       <div className=" grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] sm:gap-10 gap-4 ">
         {data.slice(0, 6).map((item, index) => (
           <Link
-            href={`project/${item.id}`}
+            href={`project/${item.projectId}`}
             key={index}
             // style={{ cursor: "pointer" }}
             className="flex flex-col space-y-5 mt-10

@@ -10,6 +10,8 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const pickOne = JSON.parse(localStorage.getItem("projectId"));
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY < lastScrollY) {
@@ -30,7 +32,6 @@ const Navbar = () => {
     console.warn("Project data is not available yet.");
     return null;
   }
-  const pickOne = 3;
 
   const handleRoute = (path) => {
     if (pathname.startsWith("/project")) {
@@ -59,10 +60,12 @@ const Navbar = () => {
         {[...data, ...data]?.map((item, index) => (
           <span
             className={`shrink-0 px-10 py-5 font-semibold cursor-pointer ${
-              index === pickOne ? "bg-black text-white" : "text-copy-primary"
+              item.projectId == pickOne
+                ? "bg-black text-white"
+                : "text-copy-primary"
             }`}
             key={index}
-            onClick={() => handleRoute(item.id)}
+            onClick={() => handleRoute(item.projectId)}
           >
             {item.projectTitle}
           </span>
