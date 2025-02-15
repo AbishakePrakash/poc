@@ -20,6 +20,8 @@ export async function getSingleProject(projectId) {
     });
     console.log(data.items[0]?.fields); // Check field names in Contentful
 
+    // const data = await client.getEntry(projectId);
+
     console.log(data);
     return data;
     // return { ...data.fields, id: data.sys.id };

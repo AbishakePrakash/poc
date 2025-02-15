@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { useProjectData } from "../context/ProjectContext";
+import { getSingleProject } from "../helper/projects copy";
 // import { useContext } from "react";
 // import { SingleProjectData } from "../context/SingleProjectContext";
 
 export const Projects = () => {
   const { data } = useProjectData();
-
+  // const { data } = getSingleProject();
   // console.log(data);
 
   if (!data) return <div>Loadings...</div>;

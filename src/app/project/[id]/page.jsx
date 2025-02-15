@@ -21,7 +21,7 @@ export default function CardDetail() {
   //   const getSingProjectData = async () => {
   //     const responese = await getSingleProject(projectId);
   //     setData(responese);
-  //     console.log(responese);
+  //     console.log("SingleProject Data", responese);
   //   };
   //   getSingProjectData();
   // }, [projectId]);
@@ -53,10 +53,13 @@ export default function CardDetail() {
     setHeader(result);
   };
 
-  const handleNavigation = (id, string) => {
-    console.log(projectId, length);
-
-    setProjectId(projectId == length ? 1 : parseInt(projectId) + 1);
+  const handleNavigation = (string) => {
+    // console.log(projectId, length);
+    if (string === "p") {
+      setProjectId(projectId == length ? 1 : parseInt(projectId) - 1);
+    } else {
+      setProjectId(projectId == length ? 1 : parseInt(projectId) + 1);
+    }
   };
 
   useEffect(() => {
@@ -102,8 +105,10 @@ export default function CardDetail() {
         </div>
         <div className="border-l border-copy-primary border-r h-full flex flex-col justify-evenly ">
           <svg
-            onClick={() =>
-              setProjectId(projectId == 1 ? length : parseInt(projectId) - 1)
+            onClick={
+              () =>
+                setProjectId(projectId == 1 ? length : parseInt(projectId) - 1)
+              // handleNavigation("p")
             }
             xmlns="http://www.w3.org/2000/svg"
             width="40"
