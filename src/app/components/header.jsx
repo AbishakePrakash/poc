@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import ToggleTheme from "../components/ToggleTheme";
+import ToggleTheme from "../hooks/ToggleTheme";
 import { useProjectData } from "../context/ProjectContext";
 import FanAnimation from "./fan";
 import React, { useEffect, useState } from "react";

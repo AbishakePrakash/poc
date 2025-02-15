@@ -1,12 +1,12 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "./context/Themecontext";
-import ToggleTheme from "./components/ToggleTheme";
+import ToggleTheme from "./hooks/ToggleTheme";
 import DataContext from "./context/DataContext";
-import { Header } from "./pages/header";
+import { Header } from "./components/header";
 import ProjectContext from "./context/ProjectContext";
-import Navbar from "./pages/navbar";
-import Footer from "./pages/footer";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 // import { CardProvider } from "./context/SingleProjectContext";
 
 const geistSans = Geist({

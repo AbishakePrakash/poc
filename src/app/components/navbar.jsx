@@ -10,7 +10,7 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const pickOne = JSON.parse(localStorage.getItem("projectId"));
+  const pickOne = 3;
 
   useEffect(() => {
     const handleScroll = () => {
