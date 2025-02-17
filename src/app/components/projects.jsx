@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { useProjectData } from "../context/ProjectContext";
 import { getSingleProject } from "../helper/projects copy";
+import { useProject } from "../context/NavLink";
 // import { useContext } from "react";
 // import { SingleProjectData } from "../context/SingleProjectContext";
 
 export const Projects = () => {
   const { data } = useProjectData();
+  const { projectid, setProjectid } = useProject();
+
   // const { data } = getSingleProject();
   // console.log(data);
 
@@ -34,6 +37,7 @@ export const Projects = () => {
             cursor-pointer
 
             "
+            onClick={() => setProjectid(item.projectId)}
           >
             <div className="text-copy-primary bg-copy-secondary h-[300px]">
               <img

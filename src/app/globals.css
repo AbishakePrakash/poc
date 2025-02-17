@@ -50,3 +50,8 @@
 #item:last-child {
   border: none;
 }
+
+#cv,
+#sworks {
+  scroll-margin-top: 350px;
+}

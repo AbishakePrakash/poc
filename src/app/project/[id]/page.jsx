@@ -1,10 +1,11 @@
 "use client";
+import { useProject } from "@/app/context/NavLink";
 import { getProject } from "@/app/helper/projects";
 import { getSingleProject } from "@/app/helper/projects copy";
 import Link from "next/link";
 // import { SingleProjectData } from "@/app/context/SingleProjectContext";
 import { useRouter, useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export default function CardDetail() {
   // const router = useRouter();
@@ -14,6 +15,9 @@ export default function CardDetail() {
   const [header, setHeader] = useState(null);
   const [projectId, setProjectId] = useState(id);
   const [length, setLength] = useState(0);
+  const { projectid, setProjectid } = useProject();
+
+  // const [loading ,setLoading]=useState(false)
 
   // useEffect(() => {
   //   if (!projectId) return;
@@ -39,7 +43,9 @@ export default function CardDetail() {
       const targetProject = response.sort((a, b) => a.projectId - b.projectId)[
         projectId - 1
       ];
-      setData(targetProject);
+      if (targetProject) {
+        setData(targetProject);
+      }
       console.log({
         paramsId: projectId,
         projectId: targetProject?.projectId,
@@ -74,7 +80,21 @@ export default function CardDetail() {
 
   // console.log("data:", data);
 
-  if (!data) return <p>Loading...</p>;
+  const handlePrev = () => {
+    const newId = projectId == 1 ? length : parseInt(projectId) - 1;
+    setProjectId(newId);
+    setProjectid(newId);
+    router.replace(`/project/${newId}`);
+  };
+
+  const handleNext = () => {
+    const newId = projectId == length ? 1 : parseInt(projectId) + 1;
+    setProjectId(newId);
+    setProjectid(newId);
+    router.replace(`/project/${newId}`);
+  };
+
+  // if (!data) return <p>Loading...</p>;
 
   return (
     <div className={`"bg-background ${header ? "mt-[350px]" : "mt-0"} "`}>
@@ -105,11 +125,7 @@ export default function CardDetail() {
         </div>
         <div className="border-l border-copy-primary border-r h-full flex flex-col justify-evenly ">
           <svg
-            onClick={
-              () =>
-                setProjectId(projectId == 1 ? length : parseInt(projectId) - 1)
-              // handleNavigation("p")
-            }
+            onClick={handlePrev}
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
@@ -122,9 +138,7 @@ export default function CardDetail() {
             <path fill="currentColor" d="m14 7l-5 5l5 5z" />
           </svg>
           <svg
-            onClick={() =>
-              setProjectId(projectId == length ? 1 : parseInt(projectId) + 1)
-            }
+            onClick={handleNext}
             xmlns="http://www.w3.org/2000/svg"
             width="40"
             height="40"
@@ -138,21 +152,21 @@ export default function CardDetail() {
         </div>
         <div>
           <span className="text-copy-primary text-xl mr-4 sm:mr-0 sm:text-2xl">
-            {data.projectId}/{length}
+            {data?.projectId}/{length}
           </span>
         </div>
       </div>
 
       <div className="text-copy-primary px-20 py-10 flex justify-between items-center border-b border-copy-primary">
         <h1 className="text-2xl text-copy-primary font-bold">
-          {data.projectTitle}
+          {data?.projectTitle}
         </h1>
 
-        <span className="font-semibold">{data.year}</span>
+        <span className="font-semibold">{data?.year}</span>
       </div>
 
       <div className="space-y-10  py-10 ">
-        {data.projectData.map((item, index) => {
+        {data?.projectData?.map((item, index) => {
           return (
             <div key={index}>
               <p className="mt-2 px-10 w-full py-10 text-copy-primary border-b border-copy-primary ">
@@ -175,7 +189,7 @@ export default function CardDetail() {
         })}
         <div>
           <p className=" px-10 my-auto w-full pb-10 text-copy-primary text-center justify-center border-b border-copy-primary ">
-            {data.quote}
+            {data?.quote}
           </p>
         </div>
       </div>

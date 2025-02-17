@@ -7,6 +7,7 @@ import { Header } from "./components/header";
 import ProjectContext from "./context/ProjectContext";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import { ProjectProvider } from "./context/NavLink";
 // import { CardProvider } from "./context/SingleProjectContext";
 
 const geistSans = Geist({
@@ -29,16 +30,18 @@ export default function RootLayout({ children }) {
     <html lang="en" style={{ fontFamily: "Inter, sans-serif" }}>
       <body>
         <DataContext>
-          <ProjectContext>
-            <ThemeProvider>
-              <nav>
-                <Header />
-                {/* <Navbar /> */}
-              </nav>
-              <main>{children}</main>
-              <Footer />
-            </ThemeProvider>
-          </ProjectContext>
+          <ProjectProvider>
+            <ProjectContext>
+              <ThemeProvider>
+                <nav>
+                  <Header />
+                  {/* <Navbar /> */}
+                </nav>
+                <main>{children}</main>
+                <Footer />
+              </ThemeProvider>
+            </ProjectContext>
+          </ProjectProvider>
           {/* </CardProvider> */}
         </DataContext>
       </body>

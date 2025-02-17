@@ -9,6 +9,8 @@ import AnimatedText from "./titleAnimation";
 import Navbar from "./navbar";
 import { useTheme } from "../context/Themecontext";
 import { WordRotateDemo } from "./marqueeText";
+import { useProject } from "../context/NavLink";
+import Link from "next/link";
 
 const textList = [
   "Creating experience?",
@@ -27,6 +29,7 @@ export const Header = () => {
   const pathname = usePathname();
   const [index, setIndex] = useState(0);
   const { theme } = useTheme();
+  const { projectid, setProjectid } = useProject();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -61,13 +64,22 @@ export const Header = () => {
     }
   };
 
-  const handleRoute = (path) => {
-    if (pathname.startsWith("/project")) {
-      router.push(path);
-      console.log(path);
+  // const handleRoute = (path) => {
+  //   if (pathname.startsWith("/project")) {
+  //     router.push(path);
+  //     console.log(path);
+  //   } else {
+  //     router.push(`project/${path}`);
+  //     console.log(`project/${path}`);
+  //   }
+  // };
+
+  const handleClick = (item) => {
+    if (projectid !== item.projectId) {
+      setProjectid(item.projectId);
+      router.replace(`/project/${item.projectId}`);
     } else {
-      router.push(`project/${path}`);
-      console.log(`project/${path}`);
+      window.history.replaceState(null, "", `/project/${item.projectId}`);
     }
   };
 
@@ -125,7 +137,7 @@ export const Header = () => {
               featured.map((item, index) => (
                 <li
                   key={index}
-                  onClick={() => handleRoute(item.projectId)}
+                  onClick={() => handleClick(item)}
                   className="px-10 py-3 border-b   border-copy-primary cursor-pointer"
                   id="item"
                 >
