@@ -40,9 +40,15 @@ export default function CardDetail() {
 
       localStorage.setItem("projectId", JSON.stringify(projectId));
 
-      const targetProject = response.sort((a, b) => a.projectId - b.projectId)[
-        projectId - 1
-      ];
+      // const targetProject = response.sort((a, b) => a.projectId - b.projectId)[
+      //   projectId - 1
+      // ];
+
+      const targetProject = response.find((item) => {
+        console.log(item.projectId, projectId);
+        return item.projectId == projectId;
+      });
+
       if (targetProject) {
         setData(targetProject);
       }

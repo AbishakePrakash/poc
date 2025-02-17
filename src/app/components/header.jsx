@@ -99,7 +99,7 @@ export const Header = () => {
           <FanAnimation />
           <p
             onClick={() => handleScroll("cv")}
-            className="p-1 sm:px-4 sm:py-2   text-center border-b-2 border-[#808080]"
+            className="p-1 sm:px-4 sm:py-2   text-center border-b-2 border-[#808080] cursor-pointer"
           >
             CV
           </p>
