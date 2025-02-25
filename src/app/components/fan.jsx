@@ -35,7 +35,7 @@ export default function FanAnimation() {
   return (
     <div
       onClick={() => router.push("/")}
-      className={`flex justify-center items-center ${
+      className={`flex justify-center items-center  ${
         theme === "light" ? "bg-black" : "bg-white"
       } `}
       // onMouseMove={handleMouseMove}
@@ -43,10 +43,10 @@ export default function FanAnimation() {
       // onMouseLeave={handleMouseUp}
     >
       <motion.svg
-        width="152"
-        height="146"
+        // width="152"
+        // height="146"
         viewBox="0 0 152 146"
-        className={`w-[100px] sm:w-[162px] group cursor-pointer`}
+        className={`w-[100px] h-auto sm:w-[162px] group cursor-pointer`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         whileHover={{

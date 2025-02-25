@@ -12,7 +12,7 @@ const Navbar = () => {
   const pathname = usePathname();
   const { projectid } = useProject();
 
-  console.log("proeject", projectid);
+  // console.log("proeject", projectid);
 
   // const pickOne = 3;
 

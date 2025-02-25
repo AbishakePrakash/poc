@@ -7,7 +7,7 @@ const ToggleTheme = () => {
 
   return (
     // <div className="">
-    <div className="flex items-center justify-between gap-0 -mt-5 sm:-mt-3">
+    <div className="flex items-center justify-between gap-0">
       <span
         className="cursor-pointer  w-[50%] py-3 flex justify-center items-center"
         onClick={() => toggleTheme("dark")}

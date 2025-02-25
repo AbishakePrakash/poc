@@ -31,6 +31,8 @@ export const Header = () => {
   const { theme } = useTheme();
   const { projectid, setProjectid } = useProject();
 
+  const winWidth = window.innerWidth < 430;
+
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % textList.length);
@@ -91,11 +93,11 @@ export const Header = () => {
     `}
     >
       <div
-        className={`flex justify-between items-center text-copy-primary bg-background border-b-2 h-[300px] border-[#808080]
+        className={`flex justify-between items-center text-copy-primary bg-background border-b-1 h-full border-[#808080]
       
     `}
       >
-        <div className="flex flex-col  border-r-2 h-full border-[#808080] justify-between w-[250px] sm:w-[150px] ">
+        <div className="flex flex-col  border-r-1 h-full border-[#808080] justify-between w-[250px] sm:w-[150px] ">
           <FanAnimation />
           <p
             onClick={() => handleScroll("cv")}
@@ -132,13 +134,14 @@ export const Header = () => {
           </div>
         </div>
         <div className="h-full border-l border-r border-copy-primary">
-          <ul className="  felx flex-col w-[250px]  sm:w-[300px]  text-end">
+          <ul className="  flex flex-col w-[250px]  sm:w-[300px]  text-end">
             {featured &&
-              featured.map((item, index) => (
+              // featured.map((item, index) => (
+              featured.slice(0, 5).map((item, index) => (
                 <li
                   key={index}
                   onClick={() => handleClick(item)}
-                  className="px-10 py-3 border-b   border-copy-primary cursor-pointer"
+                  className="px-10 py-2 border-b   border-copy-primary cursor-pointer"
                   id="item"
                 >
                   {item.projectTitle}

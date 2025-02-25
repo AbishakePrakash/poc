@@ -15,7 +15,7 @@ const AnimatedText = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % textList.length);
-    }, 1200); // Change every 2 seconds
+    }, 1800); // Change every 2 seconds
 
     return () => clearInterval(interval);
   }, []);
