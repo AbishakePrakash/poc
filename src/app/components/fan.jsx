@@ -46,7 +46,7 @@ export default function FanAnimation() {
         // width="152"
         // height="146"
         viewBox="0 0 152 146"
-        className={`w-[100px] h-auto sm:w-[162px] group cursor-pointer`}
+        className={`w-[100px] h-[130px] sm:w-[162px] group cursor-pointer`}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         whileHover={{

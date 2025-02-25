@@ -87,27 +87,27 @@ export const Header = () => {
 
   return (
     <div
-      className={` fixed w-full transition-transform duration-300 top-0 left-0 z-50
+      className={`border-box fixed w-full transition-transform duration-300 top-0 left-0 z-50
         
         ${showHeader ? "translate-y-0" : "-translate-y-full"}
     `}
     >
       <div
-        className={`flex justify-between items-center text-copy-primary bg-background border-b-1 h-full border-[#808080]
+        className={`flex h-[275px] justify-between items-center text-copy-primary bg-background border-b-2  border-[#808080]
       
     `}
       >
-        <div className="flex flex-col  border-r-1 h-full border-[#808080] justify-between w-[250px] sm:w-[150px] ">
+        <div className="flex flex-col  border-r-2 h-full border-[#808080] justify-between w-[250px] sm:w-[150px] ">
           <FanAnimation />
           <p
             onClick={() => handleScroll("cv")}
-            className="p-1 sm:px-4 sm:py-2   text-center border-b-2 border-[#808080] cursor-pointer"
+            className="p-1 sm:px-4 sm:py-2 h-full  text-center border-b-2 border-[#808080] cursor-pointer flex items-center justify-center"
           >
             CV
           </p>
           <p
             onClick={() => handleScroll("contact")}
-            className="p-1 sm:px-4 sm:py-2 text-center border-b-2 border-[#808080] cursor-pointer"
+            className="p-1 sm:px-4 sm:py-2 text-center border-b-2 border-[#808080] cursor-pointer h-full flex items-center justify-center"
           >
             CONTACTS
           </p>
@@ -134,14 +134,14 @@ export const Header = () => {
           </div>
         </div>
         <div className="h-full border-l border-r border-copy-primary">
-          <ul className="  flex flex-col w-[250px]  sm:w-[300px]  text-end">
+          <ul className="h-full flex flex-col w-[250px]  sm:w-[300px]  text-center ">
             {featured &&
               // featured.map((item, index) => (
               featured.slice(0, 5).map((item, index) => (
                 <li
                   key={index}
                   onClick={() => handleClick(item)}
-                  className="px-10 py-2 border-b   border-copy-primary cursor-pointer"
+                  className="flex-1 px-10 py-2 border-b   border-copy-primary cursor-pointer flex items-center justify-end"
                   id="item"
                 >
                   {item.projectTitle}
@@ -156,7 +156,7 @@ export const Header = () => {
           &lt; Selected Works
         </a>
       </div>
-      <div className="z-20 fixed top-[300px] left-0 w-full">
+      <div className="z-20 fixed top-[275px] left-0 w-full">
         <Navbar />
       </div>
     </div>
