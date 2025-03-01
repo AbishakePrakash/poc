@@ -93,11 +93,12 @@ export const Header = () => {
     `}
     >
       <div
-        className={`flex h-[275px] justify-between items-center text-copy-primary bg-background border-b-2  border-[#808080]
-      
-    `}
+        className={`flex h-[275px] justify-between items-center text-copy-primary bg-yellow-200 border-b-2  border-[#808080]    `}
       >
-        <div className="flex flex-col  border-r-2 h-full border-[#808080] justify-between w-[250px] sm:w-[150px] ">
+        <div
+          id="blockOne"
+          className="flex flex-col  border-r-2 h-full border-[#808080] justify-between w-[250px] sm:w-[150px] "
+        >
           <FanAnimation />
           <p
             onClick={() => handleScroll("cv")}
@@ -115,7 +116,10 @@ export const Header = () => {
             <ToggleTheme />
           </div>
         </div>
-        <div className="flex-1 sm:ml-20 sm:flex text-2xl hidden  text-center">
+        <div
+          id="blockTwo"
+          className="hidden flex-1 sm:ml-20 sm:flex text-2xl   text-center"
+        >
           <h1 className=" flex ml-40 ">
             is Industrial Design,
             <strong className="">
@@ -124,7 +128,10 @@ export const Header = () => {
           </h1>
         </div>
 
-        <div className="hidden sm:flex text-white border-l-2 h-full  items-center justify-center border-[#808080] px-10 ">
+        <div
+          id="blockThree"
+          className="hidden sm:flex text-white border-l-2 h-full  items-center justify-center border-[#808080] px-10 "
+        >
           <div
             className={` h-[240px] w-[220px] p-4 flex justify-center items-center ${
               theme === "light" ? "bg-black text-white" : "bg-white text-black"
@@ -133,7 +140,10 @@ export const Header = () => {
             <span className="text-cta-text-dark ">Project icon Image</span>
           </div>
         </div>
-        <div className="h-full border-l border-r border-copy-primary">
+        <div
+          id="blockFour"
+          className="h-full border-l border-r border-copy-primary"
+        >
           <ul className="h-full flex flex-col w-[250px]  sm:w-[300px]  text-center ">
             {featured &&
               // featured.map((item, index) => (
@@ -149,12 +159,14 @@ export const Header = () => {
               ))}
           </ul>
         </div>
-        <a
-          href="#sworks"
-          className="-rotate-90  text-sm sm:text-[20px] text-nowrap "
-        >
-          &lt; Selected Works
-        </a>
+        <div className="-rotate-90 bg-green-500">
+          <a
+            href="#sworks"
+            className="-rotate-90  text-sm sm:text-[20px] text-nowrap  bg-red-500"
+          >
+            &lt; Selected Works
+          </a>
+        </div>
       </div>
       <div className="z-20 fixed top-[275px] left-0 w-full">
         <Navbar />
