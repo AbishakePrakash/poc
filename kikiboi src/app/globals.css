@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-sans: var(--font-inter);
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.typography-hm1 {
+  @apply text-[14px] sm:text-[15px] leading-[1] tracking-[0.2em] font-normal;
+}
+
+.typography-hm2 {
+  @apply text-[18px] sm:text-[21px] leading-[1] tracking-[0em] font-normal;
+}
+
+.typography-hm3 {
+  @apply text-[18px] sm:text-[21px] leading-[1] tracking-[0em] font-semibold;
+}
+
+.typography-hm4 {
+  @apply text-[16px] sm:text-[17px] leading-[1] tracking-[0em] font-normal;
+}
+
+.typography-hm5 {
+  @apply text-[15px] sm:text-[18px] leading-[1] tracking-[0em] font-normal;
+}
+
+.typography-sb {
+  @apply text-[12px] sm:text-[14px] leading-[1] tracking-[0.2em] font-medium;
+}
+
+.typography-name {
+  @apply text-[22px] sm:text-[40px] md:text-[48px] leading-[1] tracking-[0.2em] font-normal;
+}
+
+.typography-prof {
+  @apply text-[16px] sm:text-[18px] md:text-[20px] leading-[1] tracking-[0.2em] font-normal;
+}
+
+.typography-abou {
+  @apply text-[16px] sm:text-[18px] md:text-[20px] leading-[1] tracking-[0em] font-light;
+}
+
+.typography-ps1 {
+  @apply text-[24px] sm:text-[32px] md:text-[40px] leading-[1] tracking-[0.2em] font-light;
+}
+
+.typography-ps2 {
+  @apply text-[20px] sm:text-[26px] md:text-[30px] leading-[1] tracking-[0.2em] font-normal;
+}
+
+.typography-ps3 {
+  @apply text-[16px] sm:text-[18px] leading-[1] tracking-[0.2em] font-medium;
+}
+
+.typography-cv3 {
+  @apply text-[18px] sm:text-[20px] leading-[1] tracking-[0em] font-normal;
+}
+
+.typography-cv4 {
+  @apply text-[18px] sm:text-[20px] leading-[1] tracking-[0em] font-light;
+}
+
+.typography-cv5 {
+  @apply text-[18px] sm:text-[20px] leading-[1] tracking-[0em] font-medium;
+}
+
+.typography-foot {
+  @apply text-[10px] sm:text-[12px] leading-[1] tracking-[0em] font-medium;
+}
+
+.typography-pd1 {
+  @apply text-[28px] sm:text-[34px] md:text-[40px] leading-[1] tracking-[0em] font-medium;
+}
+
+.typography-pd2 {
+  @apply text-[22px] sm:text-[26px] md:text-[30px] leading-[1] tracking-[0em] font-medium;
+}
