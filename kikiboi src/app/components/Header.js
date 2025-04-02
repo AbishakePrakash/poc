@@ -29,7 +29,7 @@ export const Header = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setHeaderVisible(false);
       } else if (currentScrollY < lastScrollY) {
         setHeaderVisible(true);
@@ -40,6 +40,8 @@ export const Header = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  localStorage.setItem("header", JSON.stringify(headerVisible));
 
   return (
     <>
@@ -271,7 +273,7 @@ export const Header = () => {
         <SlideBar />
       </div>
 
-      <div className="h-[110px] sm:h-[300px]"></div>
+      {/* <div className="h-[110px] sm:h-[300px]"></div> */}
     </>
   );
 };

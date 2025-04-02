@@ -1,14 +1,30 @@
+import { useEffect, useState } from "react";
 import { useData } from "../context/dataContext";
 
 export function About() {
   const { profile, loading } = useData();
   const data = profile[0];
+  const [header, setHeader] = useState(null);
+
+  const updateHeader = () => {
+    const headerThing = JSON.parse(localStorage.getItem("header"));
+    setHeader(headerThing);
+  };
+
+  useEffect(() => {
+    updateHeader();
+
+    const interval = setInterval(() => {
+      updateHeader();
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
   if (!data) return <div>Loadings...</div>;
   return (
-    <div className="">
-      <div
-        className={`px-5 sm:px-20 py-10 sm:py-20`}
-      >
+    <div className={`${header ? "mt-[300px]" : "mt-[50px]"}`}>
+      <div className={`px-5 sm:px-20 py-10 sm:py-20`}>
         <div className="flex flex-col sm:flex-row items-baseline space-y-2 sm:space-y-0 sm:space-x-10">
           <p className="typography-name">{data.name}</p>
           <span className="typography-prof"> - {data.role}</span>
@@ -24,7 +40,6 @@ export function About() {
           <source src={data.video.fields.file.url} type="video/mp4" />
         </video>
       </div>
-
     </div>
   );
 }
